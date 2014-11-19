@@ -26,10 +26,16 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('homestead'),
+	'local' => array('Stefans-MacBook.local', 'Rene-Lenovo'),
 
 ));
+/*
+$env = $app->detectEnvironment(function() {
 
+	return gethostname() == 'Stefans-MacBook.local' ? 'local' : 'production';
+
+});
+*/
 /*
 |--------------------------------------------------------------------------
 | Bind Paths
