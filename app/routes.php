@@ -11,9 +11,29 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
-
 //Trip Route
 Route::resource('trip', 'TripController');
 
+/*
+Route::get('/', function()
+{
+	if (Auth::check())
+	{
+		$this->layout->content = View::make('dashboard');
+	} else {
+		return View::make('hello');
+	}
+});*/
+
+Route::get('/register', 'UsersController@register');
+Route::get('/login', 'UsersController@getLogin');
+Route::post('/login', 'UsersController@login');
+Route::get('/logout', 'UsersController@logout');
+Route::post('users/add',  array('before' => 'csrf', 'uses' => 'UsersController@add'));
+
+Route::group(['before' => 'auth'], function()
+{
+	Route::get('/', 'UsersController@index');
+	Route::get('users', 'UsersController@all');
+});
 
