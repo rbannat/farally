@@ -1,0 +1,28 @@
+/*
+ * Main Sass File
+ *
+ * @author Stefan Schwartze
+ */
+
+// Mixins
+@import "mixins/vendor.sass"
+@import "mixins/configurations.sass"
+
+// Variables
+@import "vars.sass"
+
+html
+
+// Body
+body
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+body *
+	@include box-sizing(border-box)
+
+a
+	text-decoration: none
+	border: 0
+	outline: 0
+
