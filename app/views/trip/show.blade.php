@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<h2>{{{ $trip->title }}}</h2>
+<h2>{{{ $trip->title }}} by {{{ $trip->user->username}}}</h2>
 @stop
 
 @section('footer')

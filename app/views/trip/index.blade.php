@@ -4,7 +4,7 @@
 
 	@if(count($trips))
 		@foreach ($trips as $trip)
-		<p>{{{ $trip->title }}}</p>
+		<p>{{{ $trip->title }}} by {{{ $trip->user->email}}}</p>
 		@endforeach
 	@endif
 

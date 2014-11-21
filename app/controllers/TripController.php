@@ -9,13 +9,7 @@ class TripController extends \BaseController {
 	 */
 	public function index()
 	{
-		$trips = array();
-		for ($i = 1; $i < 4; $i++ ){
-			$trip = new Stdclass;
-			$trip->destination = "destination{$i}";
-			$trip->title = "Title{$i}";
-			$trips[] = $trip;
-		}
+		$trips = Trip::with('user')->get();
 		return View::make('trip.index', compact('trips'));
 	}
 
@@ -50,11 +44,9 @@ class TripController extends \BaseController {
 	 */
 	public function show($id)
 	{		
-			$trip = new Stdclass;
-			$trip->destination = "Paris";
-			$trip->title = "Trip to Paris";
+			$trip = Trip::find($id);
 				
-		return View::make('trip.show', compact('trip'));
+		return View::make('trip.show')->with('trip', $trip);
 	}
 
 
