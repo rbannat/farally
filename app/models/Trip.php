@@ -4,7 +4,7 @@ class Trip extends Eloquent {
 	protected $fillable = [
 	'title', 
 	'description', 
-	'owner',
+	'user_id',
 	'start_date',
 	'end_date', 
 	'destination', 
