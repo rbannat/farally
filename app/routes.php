@@ -12,7 +12,7 @@
 */
 
 //Trip Route
-Route::resource('trip', 'TripController');
+Route::resource('trips', 'TripsController');
 
 /*
 Route::get('/', function()
