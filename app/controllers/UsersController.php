@@ -56,7 +56,7 @@ class UsersController extends BaseController {
 	 */
 	public function getLogin()
 	{
-		$this->layout->content = View::make('users.login');
+		return View::make('users.login');
 	}
 
 	/**
