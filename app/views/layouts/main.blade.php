@@ -27,7 +27,7 @@
 
 		<div class="content">
 
-			{{ $content }}
+			@yield('content') 
 
 		</div>
 
