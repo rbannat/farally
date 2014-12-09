@@ -10,6 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Farally</title>
 		<link href='http://fonts.googleapis.com/css?family=ABeeZee|Oxygen|Open+Sans' rel='stylesheet' type='text/css'>
+		{{ HTML::style('0.1/css/font-awesome.min.css')}}
 		{{ HTML::style('0.1/css/main.css')}}
 	</head>
 	<body>
@@ -19,15 +20,17 @@
 
 		<div class="headarea">
 			<div class="head_colorfilm"></div>
-			<img class="headarea_logo" src="0.1/img/logo.jpg">
-			@if(Session::has('message'))
+			<!--<img class="headarea_logo" src="0.1/img/logo.jpg">-->
+			<span class="fa-stack fa-lg headarea_logo">
+				<i class="fa fa-paper-plane fa-stack-1x fa-inverse"></i>
+			</span>			@if(Session::has('message'))
 				<h3 class="headarea_title">{{ Session::get('message') }}</h3>
 			@endif
 		</div>
 
 		<div class="content">
 
-			@yield('content') 
+			@yield('content')
 
 		</div>
 
