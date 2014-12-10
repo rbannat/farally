@@ -2,17 +2,19 @@
  * Main Sass File
  *
  * @author Stefan Schwartze
+ * http://www.sitepoint.com/architecture-sass-project/
  */
 
-// Mixins
-@import "mixins/vendor.sass"
-@import "mixins/configurations.sass"
+//@import "compass"
+// Base
 
-// Variables
-@import "vars.sass"
+@import "vendor/bootstrap-grid"
+// Helpers
+@import "helpers/variables"
+@import "helpers/mixins"
 
-// Partials
-@import "partials/header.sass"
+// Layout
+@import "layout/header"
 
 html
 	position: relative
@@ -27,6 +29,7 @@ body
 	font-family: Open Sans
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
+	background: $variable
 
 body *
 	@include box-sizing(border-box)
