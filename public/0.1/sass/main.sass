@@ -11,11 +11,13 @@
 // Variables
 @import "vars.sass"
 
+// Partials
+@import "partials/header.sass"
+
 html
 	position: relative
 	margin: 0
 	padding: 0
-	overflow: hidden
 
 // Body
 body
@@ -34,50 +36,32 @@ a
 	border: 0
 	outline: 0
 
-.headarea
-	position: relative
-	width: 100%
-	height: 10em
-	padding: 0
-	background-image: url(../img/route.jpg)
-	background-size: cover
-	background-repeat: no-repeat
-	background-position: bottom center
-	.head_colorfilm
-		position: relative
-		height: 100%
-		width: 100%
-		background: #3EB5B8
-	.headarea_title
-		margin: 0
-		color: white
-	.headarea_logo
-		position: absolute
-		width: 6em
-		top: 2em
-		border-radius: 50%
-		left: 50%
-		margin-left: -3em
-		border: solid 3px white
-		height: 6em
-		font-size: 1em
-		vertical-align: middle
-		> *
-			position: relative
-			height: 100%
-			line-height: 1.75em
-			display: block
-			font-size: 2.75em
-			line-height: 100%
-			height: 100%
-			line-height: 2em
+
 .padding
 	padding: 1em
 .center
 	text-align: center
-.float_row
-	float: left
-	width: 100%
+.max_width_400
+	position: relative
+	max-width: 400px
+	margin: auto
+.list
+	list-style: none
+	padding: 0
+	margin: 0
+	.list_item
+		width: 100%
+		border-bottom: solid 1px #aaa
+		padding: 1em
+		.list_item_title
+			margin: 0
+.description
+	text-overflow: ellipsis
+	overflow: hidden
+	white-space: nowrap
+	margin: 0
+	margin-top: 0.5em
+
 .button
 	text-align: center
 	border: solid 2px
@@ -88,13 +72,16 @@ a
 	font-weight: bold
 	cursor: pointer
 	border-radius: 6px
-	.button_green
-		background: #1CDAB6
-		box-shadow: 0 5px 0px #00B692
+	background: #3EB5B8
+	box-shadow: 0 5px 0px #6EAB9F
 .input
 	margin-bottom: 1em
 	padding: 1em
 	font-weight: bold
+	box-shadow: 0 0 0 2px #3EB5B8
+*:focus
+	outline: 0
+	box-shadow: 0 0 0 4px #f6cc68
 .label, .input, .button
 	width: 100%
 	font-size: 1em
@@ -102,4 +89,4 @@ a
 	border-radius: 3px
 
 .content
-
+	width: 100%

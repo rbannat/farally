@@ -3,14 +3,16 @@
 @section('content')
 
 @if(count($trips))
-@foreach ($trips as $trip)
-<article>
-	<header>
-		<h1>{{{ $trip->title }}} by {{{ $trip->user->email}}}</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
-	</header>
-</article>
-@endforeach
+<ul class="list">
+	@foreach ($trips as $trip)
+	<li class="list_item">
+		<a href="trips/{{{ $trip->id }}}">
+			<h3 class="list_item_title">{{{ $trip->title }}} by {{{ $trip->user->username }}}</h3>
+			<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, velit alias praesentium veritatis! Possimus cumque, sed assumenda amet eos ipsam molestias? Doloribus deserunt et sequi illum at iusto odit, deleniti.</p>
+		</a>
+	</li>
+	@endforeach
+</ul>
 @endif
 
 @stop

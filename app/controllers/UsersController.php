@@ -11,9 +11,9 @@ class UsersController extends BaseController {
 	 */
 	public function index()
 	{
-		$username = Auth::user()->username;
+		$user= Auth::user();
 
-		$this->layout->content = View::make('dashboard');
+		return View::make('dashboard', compact('user'));
 	}
 
 

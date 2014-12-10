@@ -14,6 +14,44 @@
  *
  * @author Stefan Schwartze
  */
+.headarea {
+  position: relative;
+  width: 100%;
+  height: 10em;
+  padding: 0;
+  background-image: url(../img/route.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center; }
+  .headarea .head_colorfilm {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #3eb5b8; }
+  .headarea .headarea_title {
+    margin: 0;
+    color: white; }
+  .headarea .headarea_logo {
+    position: absolute;
+    width: 6em;
+    top: 2em;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -3em;
+    border: solid 3px white;
+    height: 6em;
+    font-size: 1em;
+    vertical-align: middle; }
+    .headarea .headarea_logo > * {
+      position: relative;
+      height: 100%;
+      line-height: 1.75em;
+      display: block;
+      font-size: 2.75em;
+      line-height: 100%;
+      height: 100%;
+      line-height: 2em; }
+
 html {
   position: relative;
   margin: 0;
@@ -23,7 +61,7 @@ body {
   position: relative;
   margin: 0;
   padding: 0;
-  font-family: Oxygen;
+  font-family: Open Sans;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -36,40 +74,34 @@ a {
   border: 0;
   outline: 0; }
 
-.headarea {
-  position: relative;
-  width: 100%;
-  height: 10em;
-  padding: 1em;
-  background-image: url(../img/route.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom center; }
-  .headarea .head_colorfilm {
-    position: absolute;
-    height: 100%;
-    width: 100%; }
-  .headarea .headarea_title {
-    margin: 0;
-    color: white; }
-  .headarea .headarea_logo {
-    position: relative;
-    width: 6em;
-    border-radius: 50%;
-    left: 50%;
-    margin-left: -3em;
-    border: solid 2px white;
-    box-shadow: 0px 2px 2px #999999; }
-
 .padding {
   padding: 1em; }
 
 .center {
   text-align: center; }
 
-.float_row {
-  float: left;
-  width: 100%; }
+.max_width_400 {
+  position: relative;
+  max-width: 400px;
+  margin: auto; }
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .list .list_item {
+    width: 100%;
+    border-bottom: solid 1px #aaaaaa;
+    padding: 1em; }
+    .list .list_item .list_item_title {
+      margin: 0; }
+
+.description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  margin-top: 0.5em; }
 
 .button {
   text-align: center;
@@ -80,18 +112,25 @@ a {
   padding: 1em 1em 1.2em;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 6px; }
-  .button .button_green {
-    background: #1cdab6;
-    box-shadow: 0 5px 0px #00b692; }
+  border-radius: 6px;
+  background: #3eb5b8;
+  box-shadow: 0 5px 0px #6eab9f; }
 
 .input {
   margin-bottom: 1em;
   padding: 1em;
-  font-weight: bold; }
+  font-weight: bold;
+  box-shadow: 0 0 0 2px #3eb5b8; }
+
+*:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #f6cc68; }
 
 .label, .input, .button {
   width: 100%;
   font-size: 1em;
   border: 0;
   border-radius: 3px; }
+
+.content {
+  width: 100%; }
