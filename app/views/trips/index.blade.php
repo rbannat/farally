@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-
+<h3>Find Your Travel Buddy</h3>
+{{ Form::open(array('url'=>'/s')) }}
+{{ Form::text('keyword', null, array('placeholder'=>'search by destination')) }}
+{{ Form::submit('search')}}
+{{ Form::close() }}
 @if(count($trips))
 <ul class="list">
 	@foreach ($trips as $trip)

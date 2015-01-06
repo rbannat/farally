@@ -14,6 +14,7 @@
 //Trip Route
 Route::resource('trips', 'TripsController');
 
+//User Routes
 Route::get('/register', 'UsersController@register');
 Route::get('/login', 'UsersController@getLogin');
 Route::post('/login', 'UsersController@login');
@@ -24,6 +25,15 @@ Route::group(['before' => 'auth'], function()
 {
 	Route::get('/', 'UsersController@index');
 	Route::get('users', 'UsersController@all');
+});
+
+//Search Route
+Route::post('/s', function(){
+	$keyword = Input::get('keyword');
+
+	$trips = Trip::where('destination', 'LIKE', '%'.$keyword.'%')->get();
+
+	return View::make('trips.index', compact('trips'));
 });
 
 
