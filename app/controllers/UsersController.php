@@ -68,7 +68,7 @@ class UsersController extends BaseController {
 	{
 		if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password'))))
 		{
-		    return Redirect::intended('/')->with('message', 'You are now logged in!');
+			return Redirect::intended('/')->with('message', 'You are now logged in!');
 		} else {
 			return Redirect::intended('login')->with('message', 'Your username/password combination was incorrect');
 		}
@@ -82,7 +82,7 @@ class UsersController extends BaseController {
 	public function logout()
 	{
 		Auth::logout();
-
+		Session::flush();
 		return Redirect::to('/')->with('message', 'You are now logged out.');
 	}
 
@@ -129,6 +129,21 @@ class UsersController extends BaseController {
 	 */
 	public function remove( $user_id = null )
 	{
+	}
+
+	public function getRememberToken()
+	{
+		return $this->remember_token;
+	}
+
+	public function setRememberToken($value)
+	{
+		$this->remember_token = $value;
+	}
+
+	public function getRememberTokenName()
+	{
+		return 'remember_token';
 	}
 
 

@@ -26,3 +26,4 @@ Route::group(['before' => 'auth'], function()
 	Route::get('users', 'UsersController@all');
 });
 
+

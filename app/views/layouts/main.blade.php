@@ -34,11 +34,11 @@
 					<li>
 						<ul>
 							<li>
-								{{ HTML::link('trips', 'Search', array('class'=>'button input_text')) }}
+								{{ HTML::link('/', 'Dashboard', array('class'=>'button input_text')) }}
 
 							</li>
 							<li>
-								{{ HTML::link('trips/create', 'Create', array('class'=>'button input_text')) }}
+								{{ HTML::link('trips/create', 'Create Trip', array('class'=>'button input_text')) }}
 
 							</li>
 							<li>
@@ -47,6 +47,12 @@
 							</li>
 							<li>
 								{{ HTML::link('users/$user->id', 'Profile', array('class'=>'button input_text')) }}  
+							</li>
+							<li>
+								{{ HTML::link('users/$user->id', 'Settings', array('class'=>'button input_text')) }}  
+							</li>
+							<li>
+								{{ HTML::link('/logout', 'Logout', array('class'=>'button input_text')) }}  
 							</li>
 						</ul>
 					</li>
