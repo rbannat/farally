@@ -23,9 +23,12 @@
 		<div class="container">
 			<span class="fa-stack fa-lg headarea_logo">
 				<i class="fa fa-paper-plane fa-stack-1x fa-inverse"></i>
-			</span>			@if(Session::has('message'))
+			</span>			
+			@if(Session::has('message'))
 			<h3 class="headarea_title">{{ Session::get('message') }}</h3>
 			@endif
+
+			@if(Auth::check())
 			<a class="menu-link">
 				<i class="fa fa-navicon fa-3x"></i>
 			</a>    
@@ -59,6 +62,7 @@
 
 				</ul>
 			</nav>
+			@endif
 		</div>
 	</header>
 
