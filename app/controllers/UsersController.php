@@ -12,8 +12,8 @@ class UsersController extends BaseController {
 	public function index()
 	{
 		$user= Auth::user();
-
-		return View::make('dashboard', compact('user'));
+		$trips = Trip::all();
+		return View::make('dashboard', compact('user','trips'));
 	}
 
 
