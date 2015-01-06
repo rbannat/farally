@@ -46,7 +46,7 @@ class UsersController extends BaseController {
 	 */
 	public function register()
 	{
-		$this->layout->content = View::make('users.register');
+		return View::make('users.register');
 	}
 
 	/**
