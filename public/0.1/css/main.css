@@ -1,89 +1,165 @@
-/*
-Error: Undefined mixin 'container-fixed'.
-        on line 11 of sass/vendor/_bootstrap-grid.scss, in `container-fixed'
-        from line 11 of sass/vendor/_bootstrap-grid.scss
-        from line 11 of sass/main.sass
+/* Main Sass File
+ *
+ * @author Stefan Schwartze
+ * http://www.sitepoint.com/architecture-sass-project/
+ */
+/* Sass Mixin: Variables
+ *
+ * @author Stefan Schwartze
+ */
+/* Sass Mixin: Vendor
+ *
+ * @author Stefan Schwartze
+ */
+#header {
+  position: relative;
+  width: 100%;
+  min-height: 5em;
+  padding: 0;
+  background: #3EB5B8; }
+  #header .headarea_title {
+    margin: 0;
+    color: white; }
+  #header .headarea_logo {
+    position: absolute;
+    width: 6em;
+    top: 2em;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -3em;
+    border: solid 3px white;
+    height: 6em;
+    font-size: 0.5em;
+    vertical-align: middle; }
+    #header .headarea_logo > * {
+      position: relative;
+      height: 100%;
+      line-height: 1.75em;
+      display: block;
+      font-size: 2.75em;
+      line-height: 100%;
+      height: 100%;
+      line-height: 2em; }
+  #header .container {
+    padding: 15px 0 15px 0;
+    width: 100%;
+    max-width: 100%; }
+    #header .container ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      overflow: hidden; }
+  #header .menu-link {
+    float: right;
+    margin-right: 10px;
+    color: #fff;
+    cursor: pointer; }
+  #header .dropdown-menu {
+    background-color: #FFF;
+    display: none;
+    /* float: left; */
+    left: 0;
+    list-style: none;
+    margin: 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: relative;
+    top: 17px;
+    z-index: 1000;
+    clear: both; }
+    #header .dropdown-menu .button {
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto; }
 
-6:  *\/
-7: 
-8: //@import "compass"
-9: // Base
-10: 
-11: @import "vendor/bootstrap-grid"
-12: // Helpers
-13: @import "helpers/variables"
-14: @import "helpers/mixins"
-15: 
-16: // Layout
+html {
+  position: relative;
+  margin: 0;
+  padding: 0; }
 
-Backtrace:
-sass/vendor/_bootstrap-grid.scss:11:in `container-fixed'
-sass/vendor/_bootstrap-grid.scss:11
-sass/main.sass:11
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:338:in `block in visit_mixin'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:98:in `block in with_mixin'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:98:in `with_mixin'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:336:in `visit_mixin'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `block (2 levels) in visit_import'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `map'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:315:in `block in visit_import'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:88:in `block in with_import'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:88:in `with_import'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/engine.rb:285:in `render_with_sourcemap'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:328:in `block in watch'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:252:in `call'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-c:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined mixin 'container-fixed'.\A         on line 11 of sass/vendor/_bootstrap-grid.scss, in `container-fixed'\A         from line 11 of sass/vendor/_bootstrap-grid.scss\A         from line 11 of sass/main.sass\A \A 6:  */\A 7: \A 8: //@import \"compass\"\A 9: // Base\A 10: \A 11: @import \"vendor/bootstrap-grid\"\A 12: // Helpers\A 13: @import \"helpers/variables\"\A 14: @import \"helpers/mixins\"\A 15: \A 16: // Layout"; }
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: Open Sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  border: 0;
+  outline: 0; }
+
+.padding {
+  padding: 1em; }
+
+.center {
+  text-align: center; }
+
+.max_width_400 {
+  position: relative;
+  max-width: 400px;
+  margin: auto; }
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .list .list_item {
+    width: 100%;
+    border-bottom: solid 1px #aaa;
+    padding: 1em; }
+    .list .list_item .list_item_title {
+      margin: 0; }
+
+.description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  margin-top: 0.5em; }
+
+.button {
+  text-align: center;
+  border: solid 2px;
+  cursor: pointer;
+  display: block;
+  margin-top: 2em;
+  padding: 1em 1em 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #3EB5B8;
+  box-shadow: 0 5px 0px #6EAB9F; }
+
+.input {
+  margin-bottom: 1em;
+  padding: 1em;
+  font-weight: bold;
+  box-shadow: 0 0 0 2px #3EB5B8; }
+
+*:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #f6cc68; }
+
+.label, .input, .button {
+  width: 100%;
+  font-size: 1em;
+  border: 0;
+  border-radius: 3px; }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+  width: 100%; }
+  .container:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/*# sourceMappingURL=main.css.map */
