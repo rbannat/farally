@@ -3,7 +3,7 @@
 @section('content')
 <h3>Find Your Travel Buddy</h3>
 {{ Form::open(array('url'=>'/s')) }}
-{{ Form::text('keyword', null, array('placeholder'=>'search by destination')) }}
+{{ Form::text('keyword', null, array('placeholder'=>'search by destination', 'id'=>'searchTextField')) }}
 {{ Form::submit('search')}}
 {{ Form::close() }}
 <h3>Latest Trips</h3>
