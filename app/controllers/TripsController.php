@@ -56,6 +56,7 @@ class TripsController extends \BaseController {
 			$trip->destination = Input::get('destination');
 			$trip->description = Input::get('description');
 			$trip->start_date = Input::get('start_date');
+			$trip->start_date = Input::get('end_date');
 			$trip->start = Input::get('start-destination');
 			$trip->max_travellers = Input::get('max_travellers');
 			$trip->user_id = Auth::id();

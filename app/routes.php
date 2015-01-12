@@ -30,10 +30,28 @@ Route::group(['before' => 'auth'], function()
 //Search Route
 Route::post('/s', function(){
 	$keyword = Input::get('location-search');
+	$startDestination = Input::get('start-destination');
+	$startDate = Input::get('start_date');
+	$endDate = Input::get('end_date');
+	$maxTravellers = Input::get('max_travellers');
 
-	$trips = Trip::where('destination', 'LIKE', '%'.explode(',',$keyword)[0].'%')->get();
+	$query = DB::table('trips');
+	$query->join('users', 'trips.user_id', '=', 'users.id');
+	if($keyword)
+		$query->where('destination', 'LIKE', '%'.$keyword.'%');
+	if($startDestination)
+		$query->where('start', 'LIKE', '%'.$startDestination.'%');
+	if($startDate)
+		$query->where('start_date', '>=', $startDate);
+	if($endDate)
+		$query->where('end_date', '<=', $endDate);
+	if($maxTravellers)
+		$query->where('max_travellers', '<=', $maxTravellers);
 
-	return View::make('trips.index', compact('trips'));
+	$searchResults = $query->get();
+	// $trips = Trip::where('destination', 'LIKE', '%'.$keyword.'%')->get();
+
+	return View::make('trips.index', compact('searchResults'));
 });
 
 
