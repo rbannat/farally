@@ -94,6 +94,9 @@ a {
   border: 0;
   outline: 0; }
 
+#site-menu a {
+  color: #fff; }
+
 .padding {
   padding: 1em; }
 
