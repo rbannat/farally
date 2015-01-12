@@ -39,7 +39,7 @@ class TripsController extends \BaseController {
 			'destination'       => 'required',
 			'description' => 'required',
 			'start_date'      => 'required',
-			'start'      => 'required'
+			'start-destination'      => 'required'
 			);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -56,7 +56,7 @@ class TripsController extends \BaseController {
 			$trip->destination = Input::get('destination');
 			$trip->description = Input::get('description');
 			$trip->start_date = Input::get('start_date');
-			$trip->start = Input::get('start');
+			$trip->start = Input::get('start-destination');
 			$trip->max_travellers = Input::get('max_travellers');
 			$trip->user_id = Auth::id();
 			$trip->save();

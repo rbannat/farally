@@ -8,7 +8,7 @@ class TripsTableSeeder extends Seeder {
 
 		Trip::create(array(
 			'title' => 'Trip to London',
-			'destination' => 'London',
+			'destination' => 'London, United Kingdom',
 			'start' => 'Berlin',
 			'max_travellers' => '10',
 			'description' => 'I wanna go to london',

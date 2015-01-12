@@ -21,8 +21,8 @@ class CreateTripsTable extends Migration {
 			$table->string('start');
 			$table->integer('max_travellers');
 			$table->text('description');
-			$table->dateTime('start_date');
-			$table->dateTime('end_date');
+			$table->date('start_date');
+			$table->date('end_date');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
 

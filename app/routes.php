@@ -29,9 +29,9 @@ Route::group(['before' => 'auth'], function()
 
 //Search Route
 Route::post('/s', function(){
-	$keyword = Input::get('keyword');
+	$keyword = Input::get('location-search');
 
-	$trips = Trip::where('destination', 'LIKE', '%'.$keyword.'%')->get();
+	$trips = Trip::where('destination', 'LIKE', '%'.explode(',',$keyword)[0].'%')->get();
 
 	return View::make('trips.index', compact('trips'));
 });

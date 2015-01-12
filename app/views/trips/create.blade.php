@@ -18,8 +18,8 @@
 				{{ Form::text('title') }}
 			</li>
 			<li>
-				{{ Form::label('start', 'Start:') }}
-				{{ Form::text('start') }}
+				{{ Form::label('start-destination', 'Start:') }}
+				{{ Form::text('start-destination') }}
 			</li>
 			<li>
 				{{ Form::label('destination', 'Destination:') }}
@@ -27,11 +27,11 @@
 			</li>
 			<li>
 				{{ Form::label('start_date', 'From:') }}
-				<input type="datetime-local" id="start_date" name="start_date">
+				{{Form::input('date','start_date')}}
 			</li>
 			<li>
 				{{ Form::label('end_date', 'To:') }}
-				<input type="datetime-local" id="end_date" name="end_date">
+				{{Form::input('date','end_date')}}
 			</li>
 			<li>
 				{{ Form::label('description', 'Description:') }}
