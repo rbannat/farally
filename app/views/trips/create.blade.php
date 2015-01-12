@@ -11,8 +11,6 @@
 		{{ HTML::ul($errors->all()) }}
 		{{ Form::open(array('url' => 'trips')) }}
 		<ul>
-
-
 			<li>
 				{{ Form::label('title', 'Title:') }}
 				{{ Form::text('title') }}
@@ -44,9 +42,7 @@
 
 			</li>
 			<li>
-
 				{{ Form::submit('Create') }}
-
 			</li>
 		</ul>
 		{{ Form::close() }}	
