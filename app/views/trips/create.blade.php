@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@extends('partials.header')
 @section('content')
 
 <article>
@@ -45,7 +45,7 @@
 				{{ Form::submit('Create') }}
 			</li>
 		</ul>
-		{{ Form::close() }}	
+		{{ Form::close() }}
 	</section>
 </article>
 

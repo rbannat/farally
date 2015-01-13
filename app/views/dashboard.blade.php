@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@extends('partials.header')
 @section('content')
 <h3>Find Your Travel Buddy</h3>
 {{ Form::open(array('url'=>'/s')) }}

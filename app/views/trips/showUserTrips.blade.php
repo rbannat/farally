@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@extends('partials.header')
 @section('content')
 
 @if(count($trips))
