@@ -1,5 +1,8 @@
 @extends('layouts.main')
 @section('content')
+
+<section class="section main">
+	<div class="section_container">
 <div class="padding">
 	{{ Form::open(array('url'=>'/login', 'class'=>'max_width_400')) }}
 	    <h3 class="text center">Please Sign In</h3>
@@ -15,4 +18,6 @@
 		{{ HTML::link('register', 'Sign Up', array('class'=>'button input_text')) }}
 	</div>
 </div>
+	</div>
+</section>
 @stop

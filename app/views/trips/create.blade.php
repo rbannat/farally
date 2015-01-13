@@ -2,6 +2,8 @@
 @extends('partials.header')
 @section('content')
 
+<section class="section main">
+	<div class="section_container">
 <article>
 	<header>
 		<h1>Create Trip</h1>
@@ -49,5 +51,6 @@
 	</section>
 </article>
 
-
+	</div>
+</section>
 @stop

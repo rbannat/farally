@@ -1,5 +1,8 @@
 @extends('layouts.main')
 @section('content')
+
+<section class="section main">
+    <div class="section_container">
 {{ HTML::link('login', 'Login') }}
 {{ Form::open(array('url'=>'users/add', 'class'=>'')) }}
     <h2 class="">Please Register</h2>
@@ -20,4 +23,6 @@
 
     {{ Form::submit('Register', array('class'=>''))}}
 {{ Form::close() }}
+    </div>
+</section>
 @stop

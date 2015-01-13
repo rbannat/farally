@@ -2,6 +2,8 @@
 @extends('partials.header')
 @section('content')
 
+<section class="section main">
+	<div class="section_container">
 @if(count($trips))
 <ul class="list">
 	@foreach ($trips as $trip)
@@ -14,5 +16,7 @@
 	@endforeach
 </ul>
 @endif
+	</div>
+</section>
 
 @stop

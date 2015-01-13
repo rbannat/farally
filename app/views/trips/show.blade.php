@@ -1,6 +1,9 @@
 @extends('layouts.main')
 @extends('partials.header')
 @section('content')
+
+<section class="section main">
+	<div class="section_container">
 <div class="padding">
 	<article>
 		<header>
@@ -9,5 +12,7 @@
 		</header>
 	</article>
 </div>
+	</div>
+</section>
 @stop
 

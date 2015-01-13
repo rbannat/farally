@@ -13,11 +13,7 @@
 	</head>
 	<body>
 
-		<section class="section main">
-			<div class="section_container">
-				@yield('content')
-			</div>
-		</section>
+		@yield('content')
 
 		{{ HTML::script('0.1/js/jquery/jquery-2.1.3.min.js') }}
 		{{ HTML::script('0.1/js/main.js')}}

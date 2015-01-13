@@ -1,6 +1,9 @@
 @extends('layouts.main')
 @extends('partials.header')
 @section('content')
+
+<section class="section main">
+	<div class="section_container">
 <h3>Find Your Travel Buddy</h3>
 {{ Form::open(array('url'=>'/s')) }}
 {{ Form::text('location-search', null, array('placeholder'=>'search by destination', 'id'=>'location-search')) }}
@@ -37,6 +40,7 @@
 	@endforeach
 </ul>
 @endif
-
+	</div>
+</section>
 @stop
 
