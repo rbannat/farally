@@ -19,14 +19,6 @@
 			</div>
 		</section>
 
-		@section('footer')
-		<footer class="section footer">
-			<div class="section_container">
-
-			</div>
-		</footer>
-		@show
-
 		{{ HTML::script('0.1/js/jquery/jquery-2.1.3.min.js') }}
 		{{ HTML::script('0.1/js/main.js')}}
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
