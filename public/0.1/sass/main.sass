@@ -2,7 +2,6 @@
  * Main Sass File
  *
  * @author Stefan Schwartze
- * http://www.sitepoint.com/architecture-sass-project/
  */
 
 //@import "compass"
@@ -19,15 +18,25 @@ html
 	position: relative
 	margin: 0
 	padding: 0
+	background: white
+	min-height: 100%
 
 // Body
 body
 	position: relative
-	margin: 0
+	margin: auto
 	padding: 0
-	font-family: Open Sans
+	font-family: Source Sans Pro
+	font-weight: 300
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
+	color: black
+	&.login
+		background-image: url(../img/next.jpeg)
+		background-size: cover
+		background-position: center
+	&.dashboard
+		background: white
 
 body *
 	@include box-sizing(border-box)
@@ -36,9 +45,10 @@ a
 	text-decoration: none
 	border: 0
 	outline: 0
+	color: $text_gray
 
 .padding
-	padding: 1em
+	padding: 5%
 .center
 	text-align: center
 .max_width_400
@@ -53,8 +63,14 @@ a
 		width: 100%
 		border-bottom: solid 1px #aaa
 		padding: 1em
+		&:first-child
+			border-top: solid 1px #aaa
+		a:visited, a:focus
+			color: $text_gray
 		.list_item_title
 			margin: 0
+			.fa
+				margin-right: 10px
 .description
 	text-overflow: ellipsis
 	overflow: hidden
@@ -68,18 +84,18 @@ a
 	cursor: pointer
 	display: block
 	margin-top: 2em
-	padding: 1em 1em 1.2em
-	font-weight: bold
+	padding: 1em 1em 1em
 	cursor: pointer
 	border-radius: 6px
-	background: #3EB5B8
-	box-shadow: 0 5px 0px #6EAB9F
+	background: $blue
 	color: #fff
+	font-family: Roboto
+	font-weight: 300
 .input
 	margin-bottom: 1em
 	padding: 1em
 	font-weight: bold
-	box-shadow: 0 0 0 2px #3EB5B8
+	box-shadow: 0 0 0 2px $blue
 *:focus
 	outline: 0
 	box-shadow: 0 0 0 4px #f6cc68
@@ -89,13 +105,69 @@ a
 	border: 0
 	border-radius: 3px
 
-.container 
-	margin-left: auto
-	margin-right: auto
-	max-width: 960px
+
+
+
+.section
+	position: relative
+	&.login
+		padding: 5%
+		min-height: 100%
+		background: -moz-linear-gradient(top,  rgba(53,89,165,.5) 0%, rgba(125,185,232,0) 100%)
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(53,89,165,.5)), color-stop(100%,rgba(125,185,232,0)))
+		background: -webkit-linear-gradient(top,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		background: -o-linear-gradient(top,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		background: -ms-linear-gradient(top,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		background: linear-gradient(to bottom,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		color: white
+		background-position: fixed
+	&.search
+		padding: 5%
+	.section_container
+		margin-left: auto
+		margin-right: auto
+		max-width: 960px
+		width: 100%
+		&:after
+			content: ""
+			display: table
+			clear: both
+		.section_content_header
+			.map_embed
+				position: absolute
+				z-index: 0
+				top: 0
+			.overlay
+				position: absolute
+				width: 100%
+				top: 0
+				height: 200px
+				z-index: 1
+				background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 75%)
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(0,0,0,0.65)))
+				background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+				background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+				background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+				background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+			.padding
+				z-index: 2
+				position: relative
+				color: white
+		.section_container_title
+			font-size: 30px
+			font-family: Lato
+			small
+				font-size: 20px
+				font-weight: 300
+				.fa
+					margin-right: 10px
+		.section_container_title_small
+			font-size: 24px
+			font-family: Lato
+			.fa
+				margin-right: 20px
+.row
 	width: 100%
-	&:after 
-		content: ""
-		display: table
-		clear: both
-		
+	position: relative
+	float: left
+
