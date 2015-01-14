@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-    //Menu Open   
-    $('.menu-link').click(function() {
+    //Menu Open
+    $('.header_menu-link').click(function() {
     	$('#site-menu').toggle();
     });
 
-    //Hide site-nav content.    
+    //Hide site-nav content.
     $('#site-menu').hide();
 
     function initialize() {
@@ -29,13 +29,3 @@ $(document).ready(function() {
 
     google.maps.event.addDomListener(window, 'load', initialize);
 });
-// $(window).resize(function() {
-//   if ($(window).width() > 480) {
-//       $('.menu-link').css('display','none');
-//       $('.#site-menu ul').show();
-//   }
-//   else {
-//       $('.menu-link').css('display','block');
-//       $('.#site-menu ul').hide();
-//   }
-// });
