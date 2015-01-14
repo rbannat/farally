@@ -1,47 +1,25 @@
-#header
+.header
 	position: relative
 	width: 100%
-	min-height: 5em
 	padding: 0
-	background: #3EB5B8
-	.headarea_title
+	background-color: $blue
+	color: white
+	.header_title
 		margin: 0
 		color: white
-	.headarea_logo
-		position: absolute
-		width: 6em
-		top: 2em
-		border-radius: 50%
-		left: 50%
-		margin-left: -3em
-		border: solid 3px white
-		height: 6em
-		font-size: 0.5em
-		vertical-align: middle
-		> *
-			position: relative
-			height: 100%
-			line-height: 1.75em
-			display: block
-			font-size: 2.75em
-			line-height: 100%
-			height: 100%
-			line-height: 2em
-	.container
-		padding: 15px 0 15px 0
-		width: 100%
-		max-width: 100%
-		ul
-			list-style-type: none
-			padding: 0
-			margin: 0
-			overflow: hidden
-	.menu-link
+		width: auto
+		display: inline-block
+		text-align: center
+		line-height: 1.5em
+	.header_logo
+		float: left
+		margin-right: 20px
+	.header_menu-link
+		margin-left: 20px
 		float: right
-		margin-right: 10px
 		color: #fff
 		cursor: pointer
-	.dropdown-menu 
+	.dropdown-menu
 		background-color: #FFF
 		display: none
 		/* float: left; */
