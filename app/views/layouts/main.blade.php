@@ -11,14 +11,8 @@
 		{{ HTML::style('0.1/css/font-awesome.min.css')}}
 		{{ HTML::style('0.1/css/main.css')}}
 	</head>
-	<body>
 
-		@yield('content')
+	@yield('content')
 
-		{{ HTML::script('0.1/js/jquery/jquery-2.1.3.min.js') }}
-		{{ HTML::script('0.1/js/main.js')}}
-		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-
-	</body>
 </html>
 
