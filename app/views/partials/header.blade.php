@@ -1,4 +1,4 @@
-<header class="section header padding">
+<header class="section header">
 
 	<div class="section_container">
 

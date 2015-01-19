@@ -123,36 +123,40 @@ a
 		background-position: fixed
 	&.search
 		padding: 5%
+	.section_header
+		position: relative
+		height: calc(100% - 64px)
+		.map_embed
+			position: absolute
+			z-index: 0
+			top: 0
+		.overlay
+			position: absolute
+			width: 100%
+			top: 0
+			height: 100%
+			z-index: 1
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 75%)
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(0,0,0,0.65)))
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+			background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+			background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+		.section_container_head
+			z-index: 2
+			position: absolute
+			color: white
+			bottom: 10%
 	.section_container
 		margin-left: auto
 		margin-right: auto
 		max-width: 960px
 		width: 100%
+		padding: 1em
 		&:after
 			content: ""
 			display: table
 			clear: both
-		.section_content_header
-			.map_embed
-				position: absolute
-				z-index: 0
-				top: 0
-			.overlay
-				position: absolute
-				width: 100%
-				top: 0
-				height: 200px
-				z-index: 1
-				background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 75%)
-				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(0,0,0,0.65)))
-				background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
-				background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
-				background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
-				background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
-			.padding
-				z-index: 2
-				position: relative
-				color: white
 		.section_container_title
 			font-size: 30px
 			font-family: Lato
@@ -170,4 +174,7 @@ a
 	width: 100%
 	position: relative
 	float: left
-
+@media only screen and (min-width : 480px)
+	.section
+		.section_header
+			height: 300px
