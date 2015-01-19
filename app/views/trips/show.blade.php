@@ -17,10 +17,14 @@
 		</header>
 		<div class="section_container">
 			<article>
-					<p>{{{ $trip->description }}}</p>
+				<h3 class="section_container_subtitle">Description</h3>
+				<p>{{{ $trip->description }}}</p>
+				<h3 class="section_container_subtitle">Trave time</h3>
 					<p>{{{ $trip->start_date }}}</p>
 					<p>{{{ $trip->end_date }}}</p>
-					<p>{{{ $trip->max_travellers }}}</p>
+				<h3 class="section_container_subtitle">Travellers</h3>
+					<p> / {{{ $trip->max_travellers }}}</p>
+					<p>{{{ $trip->transport }}}</p>
 			</article>
 		</div>
 	</section>

@@ -9,7 +9,8 @@ class Trip extends Eloquent {
 		'end_date',
 		'destination',
 		'start',
-		'max_travellers'
+		'max_travellers',
+		'transport'
 	];
 
 	public function user(){
