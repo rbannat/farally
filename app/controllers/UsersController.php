@@ -35,8 +35,10 @@ class UsersController extends BaseController {
 	 * @param  int  $user_id
 	 * @return Response
 	 */
-	public function one( $user_id = null )
+	public function one( $user_id )
 	{
+		$user = User::findOrFail($user_id);
+		return View::make('users.profile', compact('user'));
 	}
 
 	/**

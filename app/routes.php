@@ -25,6 +25,7 @@ Route::group(['before' => 'auth'], function()
 {
 	Route::get('/', 'UsersController@index');
 	Route::get('users', 'UsersController@all');
+	Route::get('users/{user_id}', 'UsersController@one');
 });
 
 //Search Route
