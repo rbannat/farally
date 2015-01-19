@@ -12,42 +12,34 @@
 	<section>
 		{{ HTML::ul($errors->all()) }}
 		{{ Form::open(array('url' => 'trips')) }}
-		<ul>
+		<ul class="list">
 			<li>
-				{{ Form::label('title', 'Title:') }}
-				{{ Form::text('title') }}
+				{{ Form::text('title', null, array('class'=>'input input_text', 'placeholder'=>'Title')) }}
 			</li>
 			<li>
-				{{ Form::label('start-destination', 'Start:') }}
-				{{ Form::text('start-destination') }}
+				{{ Form::text('start-destination', null, array('class'=>'input input_text', 'placeholder'=>'Start place')) }}
 			</li>
 			<li>
-				{{ Form::label('destination', 'Destination:') }}
-				{{ Form::text('destination') }}
+				{{ Form::text('destination', null, array('class'=>'input input_text', 'placeholder'=>'Destination')) }}
 			</li>
 			<li>
-				{{ Form::label('start_date', 'From:') }}
-				{{Form::input('date','start_date')}}
+				{{Form::input('date','start_date', null, array('class'=>'input input_text'))}}
 			</li>
 			<li>
-				{{ Form::label('end_date', 'To:') }}
-				{{Form::input('date','end_date')}}
+				{{Form::input('date','end_date', null, array('class'=>'input input_text'))}}
 			</li>
 			<li>
-				{{ Form::label('description', 'Description:') }}
-				{{ Form::textarea('description') }}
+				{{ Form::textarea('description', null, ['class' => 'input input_text']) }}
 			</li>
 			<li>
-
-				{{ Form::label('max_travellers', 'Max Travellers:') }}
-				{{ Form::number('max_travellers') }}
-
+				{{ Form::number('max_travellers', null, array('class'=>'input input_text', 'placeholder'=>'Max. travellers')) }}
 			</li>
 			<li>
-				{{ Form::submit('Create') }}
+				{{ Form::submit('Create', array('class'=>'button')) }}
 			</li>
 		</ul>
 		{{ Form::close() }}
+
 	</section>
 </article>
 

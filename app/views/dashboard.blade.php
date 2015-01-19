@@ -27,8 +27,10 @@
 		</div>
 	</section>
 	<section class="section list">
-		<div class="section_container">
-			<h3 class="section_container_title_small padding"><i class="fa fa-clock-o fa-1x"></i>Latest Trips</h3>
+		<div class="section_container nopadding">
+			<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Latest Trips</h3>
+		</div>
+		<div class="section_container nopadding">
 			@if(count($trips))
 			<ul class="list">
 				@foreach ($trips as $trip)
