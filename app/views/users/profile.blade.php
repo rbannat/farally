@@ -16,7 +16,7 @@
 			</div>
 		</header>
 		<div class="section_container">
-
+			<h3 class="section_container_subtitle">{{{ $user->about }}}</h3>
 		</div>
 	</section>
 		{{ HTML::script('0.1/js/jquery/jquery-2.1.3.min.js') }}
