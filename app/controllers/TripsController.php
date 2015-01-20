@@ -75,10 +75,24 @@ class TripsController extends \BaseController {
 	 * @return Response
 	 */
 	public function show($id)
-	{		
+	{
 		$trip = Trip::find($id);
+		$user = Auth::user();
+		return View::make('trips.show')->with('trip', $trip)->with('user', $user);
+	}
 
-		return View::make('trips.show')->with('trip', $trip);
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function user_trips($user_id)
+	{
+
+		$trips = Trip::where('user_id', $user_id);
+		$user = User::find($user_id);
+		return View::make('trips.showUserTrips')->with('trips', $trips)->with('user', $user);
 	}
 
 
