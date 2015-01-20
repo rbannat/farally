@@ -14,7 +14,7 @@
   position: relative;
   width: 100%;
   padding: 0;
-  background-color: #3559a5;
+  background-color: #2f9dab;
   color: white; }
   .header .header_title {
     margin: 0;
@@ -85,6 +85,9 @@ a {
 .padding {
   padding: 5%; }
 
+.nopadding {
+  padding: 0 !important; }
+
 .center {
   text-align: center; }
 
@@ -126,7 +129,7 @@ a {
   padding: 1em 1em 1em;
   cursor: pointer;
   border-radius: 6px;
-  background: #3559a5;
+  background: #2f9dab;
   color: white;
   font-family: Roboto;
   font-weight: 300; }
@@ -135,7 +138,7 @@ a {
   margin-bottom: 1em;
   padding: 1em;
   font-weight: bold;
-  box-shadow: 0 0 0 2px #3559a5; }
+  box-shadow: 0 0 0 2px #2f9dab; }
 
 *:focus {
   outline: 0;
@@ -209,6 +212,13 @@ a {
       font-family: Lato; }
       .section .section_container .section_container_title_small .fa {
         margin-right: 20px; }
+  .section .section_metabox .section_metabox_list .section_metabox_list_item {
+    display: inline-table;
+    padding: 1em;
+    background: #2f9dab;
+    color: white; }
+    .section .section_metabox .section_metabox_list .section_metabox_list_item .fa {
+      margin-right: 10px; }
 
 .row {
   width: 100%;
