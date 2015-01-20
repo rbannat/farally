@@ -15,6 +15,14 @@
 				</div>
 			</div>
 		</header>
+		<div class="section_metabox">
+			<ul class="section_metabox_list list">
+				<li class="section_metabox_list_item destination"><i class="fa fa-location-arrow"></i>{{{ $trip->destination }}}</li>
+				<li class="section_metabox_list_item start_date"><i class="fa fa-calendar"></i>{{{ $trip->start_date }}}</li>
+				<li class="section_metabox_list_item end_date"><i class="fa fa-calendar"></i>{{{ $trip->end_date }}}</li>
+				<li class="section_metabox_list_item transport"><i class="fa fa-car"></i>{{{ $trip->transport }}}</li>
+			</ul>
+		</div>
 		<div class="section_container">
 			<article>
 				<h3 class="section_container_subtitle">Description</h3>
