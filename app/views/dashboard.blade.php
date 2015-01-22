@@ -27,7 +27,7 @@
 		</div>
 	</section>
 	<section class="section list">
-		<div class="section_container nopadding">
+		<div class="section_container">
 			<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Latest Trips</h3>
 		</div>
 		<div class="section_container nopadding">
