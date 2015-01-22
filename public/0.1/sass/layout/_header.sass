@@ -19,20 +19,30 @@
 		float: right
 		color: #fff
 		cursor: pointer
-	.dropdown-menu
-		background-color: #FFF
-		display: none
-		/* float: left; */
-		left: 0
-		list-style: none
-		margin: 0
-		min-width: 160px
-		padding: 5px 0
-		position: relative
-		top: 17px
-		z-index: 1000
-		clear: both
-		.button
-			width: 200px
-			margin-left: auto
-			margin-right: auto
+.dropdown-menu
+	background-color: #FFF
+	display: none
+	/* float: left */
+	left: 0
+	list-style: none
+	margin: 0
+	min-width: 160px
+	padding: 5px 0
+	position: relative
+	top: 17px
+	z-index: 1000
+	clear: both
+	display: block
+	position: fixed
+	width: 100%
+	min-height: 100%
+	top: 0px
+	transform: translateY(-100%)
+	background: rgba(70, 180, 194, 0.490196)
+	@include transition(all .5s)
+	&.show
+		transform: translateY(64px)
+	.button
+		width: 200px
+		margin-left: auto
+		margin-right: auto

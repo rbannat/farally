@@ -2,11 +2,8 @@ $(document).ready(function() {
 
     //Menu Open
     $('.header_menu-link').click(function() {
-    	$('#site-menu').toggle();
+    	$('#site-menu').toggleClass('show');
     });
-
-    //Hide site-nav content.
-    $('#site-menu').hide();
 
     function initialize() {
 
