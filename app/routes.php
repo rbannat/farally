@@ -12,7 +12,7 @@
 */
 
 // Public Routes
-Route::get('/register', 'UsersController@register');
+Route::get('/register', 'UsersController@getRegisterForm');
 Route::get('/login', 'UsersController@getLoginForm');
 Route::post('/login', 'UsersController@login');
 Route::get('/logout', 'UsersController@logout');
@@ -28,11 +28,11 @@ Route::group(['before' => 'auth'], function()
 
 	// Trip Routes
 	Route::get('trips', 'TripsController@all');
-	Route::get('trips/{trip_id}', 'TripsController@one');
-	Route::get('trips/create', 'TripsController@getCreateForm');
-	Route::post('trips/add', 'TripsController@add');
 	Route::get('users/{user_id}/trips', 'TripsController@user_trips');
+	Route::post('trips/add', 'TripsController@add');
 	Route::post('search', 'TripsController@filter');
+	Route::get('trips/create', 'TripsController@getCreateForm');
+	Route::get('trips/{trip_id}', 'TripsController@one');
 });
 
 
