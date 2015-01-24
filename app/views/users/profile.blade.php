@@ -1,7 +1,7 @@
 @extends('layouts.main')
-@extends('partials.header')
 @section('content')
 <body>
+	@include('partials.header')
 	<section class="section trip">
 		<header class="section_header">
 			<div class="overlay"></div>
@@ -16,7 +16,8 @@
 			</div>
 		</header>
 		<div class="section_container">
-			<h3 class="section_container_subtitle">{{{ $user->about }}}</h3>
+			<h3 class="section_container_subtitle">About</h3>
+			<hp>{{{ $user->about }}}</p>
 		</div>
 	</section>
 		{{ HTML::script('0.1/js/jquery/jquery-2.1.3.min.js') }}
