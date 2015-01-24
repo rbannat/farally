@@ -15,7 +15,7 @@ class TripsTableSeeder extends Seeder {
 			'start_date' => '2015-02-02',
 			'end_date' => '2015-02-08',
 			'user_id' => '1',
-			'transport' => '["car", "plane", "train"]'
+			'transport' => serialize(["car", "plane", "train"])
 			));
 
 		Trip::create(array(
@@ -27,7 +27,7 @@ class TripsTableSeeder extends Seeder {
 			'start_date' => '2015-02-15',
 			'end_date' => '2015-02-30',
 			'user_id' => '2',
-			'transport' => '["car", "plane", "train"]'
+			'transport' => serialize(["car", "plane", "train"])
 			));
 
 		Trip::create(array(
@@ -39,7 +39,7 @@ class TripsTableSeeder extends Seeder {
 			'start_date' => '2015-02-01',
 			'end_date' => '2015-02-07',
 			'user_id' => '2',
-			'transport' => '["car", "plane", "train"]'
+			'transport' => serialize(["car", "plane", "train"])
 			));
 
 	}

@@ -9,7 +9,7 @@ class TripsController extends BaseController {
 	 */
 	public function all()
 	{
-		$trips = Trip::with('user')->get();
+		$trips = Trip::with('user')->orderBy('created_at', 'DESC')->get();
 		return View::make('trips.index', compact('trips'));
 	}
 
@@ -60,11 +60,11 @@ class TripsController extends BaseController {
 			$trip->start = Input::get('start-destination');
 			$trip->max_travellers = Input::get('max_travellers');
 			$trip->user_id = Auth::id();
-			$trip->transport = Input::get('transport');
+			$trip->transport = serialize(Input::get('transport'));
 			$trip->save();
 
-            // redirect
-			return Redirect::to('trips');
+			$trips = Trip::where('user_id', '=', Auth::id())->get();
+			return View::make('users.showUserTrips')->with('trips', $trips);
 		}
 	}
 
@@ -78,7 +78,6 @@ class TripsController extends BaseController {
 	public function one($id)
 	{
 		$trip = Trip::find($id);
-		$user = Auth::user();
 		return View::make('trips.singleTrip')->with('trip', $trip);
 	}
 
@@ -95,9 +94,11 @@ class TripsController extends BaseController {
 		$startDate = Input::get('start_date');
 		$endDate = Input::get('end_date');
 		$maxTravellers = Input::get('max_travellers');
+		$transport = Input::get('transport');
 
 		$query = DB::table('trips');
 		$query->join('users', 'trips.user_id', '=', 'users.id');
+		$query->select('trips.id', 'trips.title', 'trips.destination', 'users.username');
 		if($keyword)
 			$query->where('destination', 'LIKE', '%'.$keyword.'%');
 		if($startDestination)
@@ -108,7 +109,12 @@ class TripsController extends BaseController {
 			$query->where('end_date', '<=', $endDate);
 		if($maxTravellers)
 			$query->where('max_travellers', '<=', $maxTravellers);
-
+		if($transport){
+			foreach($transport as $value){
+				$query->where('transport', 'LIKE', '%'.$value.'%');
+			}
+		}
+		$query->orderBy('trips.created_at', 'desc');
 		$trips = $query->get();
 		// $trips = Trip::where('destination', 'LIKE', '%'.$keyword.'%')->get();
 
