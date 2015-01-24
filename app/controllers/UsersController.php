@@ -9,7 +9,7 @@ class UsersController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function dashboard()
 	{
 		$user= Auth::user();
 		$trips = Trip::all();
@@ -56,7 +56,7 @@ class UsersController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function getLogin()
+	public function getLoginForm()
 	{
 		return View::make('users.login');
 	}
@@ -93,7 +93,7 @@ class UsersController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function add( /*$user_id = null*/ )
+	public function add()
 	{
 		$validator = Validator::make(Input::all(), User::$rules);
 
