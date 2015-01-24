@@ -1,43 +1,19 @@
 @extends('layouts.main')
 @section('content')
 <body class="dashboard">
-	@extends('partials.header')
-	<section class="section search">
-		<div class="section_container">
-			<h3 class="section_container_title_small"><i class="fa fa-search fa-1x"></i>Find Your Travel Buddy</h3>
-			{{ Form::open(array('url'=>'/s')) }}
-			{{ Form::text('location-search', null, array('class'=>'input input_text', 'placeholder'=>'search by destination', 'id'=>'location-search')) }}
-			<ul class="list filter">
-				<li>
-					{{ Form::text('start-destination', null, array('class'=>'input input_text', 'placeholder'=>'Start place')) }}
-				</li>
-				<li>
-					{{Form::input('date','start_date', null, array('class'=>'input input_text'))}}
-				</li>
-				<li>
-					{{Form::input('date','end_date', null, array('class'=>'input input_text'))}}
-				</li>
-				<li>
-					{{ Form::number('max_travellers', null, array('class'=>'input input_text', 'placeholder'=>'Max. travellers')) }}
-
-				</li>
-			</ul>
-			{{ Form::submit('Search', array('class'=>'button'))}}
-			{{ Form::close() }}
-		</div>
-	</section>
+	@include('partials.header')
+	@include('partials.tripsearch')
 	<section class="section list">
 		<div class="section_container">
-			<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Search results</h3>
-		</div>
-		<div class="section_container nopadding">
-			@if(count($searchResults))
+			<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Searched Trips</h3>
+			@if(count($trips))
 			<ul class="list">
-				@foreach ($searchResults as $result)
+				@foreach ($trips as $trip)
 				<li class="list_item">
-					<a href="trips/{{{ $result->id }}}">
-						<h3 class="list_item_title"><i class="fa fa-user fa-1x"></i>{{{ $result->title }}} by {{{ $result->username }}}</h3>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, velit alias praesentium veritatis! Possimus cumque, sed assumenda amet eos ipsam molestias? Doloribus deserunt et sequi illum at iusto odit, deleniti.</p>
+					<a href="trips/{{{ $trip->id }}}">
+						<h3 class="list_item_title"><i class="fa fa-paper-plane fa-1x"></i>{{{ $trip->title }}}</h3>
+						<p class="list_item_text"><i class="fa fa-location-arrow fa-1x"></i>{{{ $trip->destination }}}</p>
+						<p class="list_item_text"><i class="fa fa-user fa-1x"></i>{{{ $trip->username }}}</p>
 					</a>
 				</li>
 				@endforeach
