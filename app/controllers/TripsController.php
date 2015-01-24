@@ -7,7 +7,7 @@ class TripsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function all()
 	{
 		$trips = Trip::with('user')->get();
 		return View::make('trips.index', compact('trips'));
@@ -19,9 +19,9 @@ class TripsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function getCreateForm()
 	{
-		return View::make('trips.create');
+		return View::make('trips.createForm');
 	}
 
 
@@ -30,7 +30,7 @@ class TripsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function add()
 	{
 		 // validate
         // read more on validation at http://laravel.com/docs/validation
@@ -74,11 +74,11 @@ class TripsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function one($id)
 	{
 		$trip = Trip::find($id);
 		$user = Auth::user();
-		return View::make('trips.show')->with('trip', $trip)->with('user', $user);
+		return View::make('trips.singleTrip')->with('trip', $trip);
 	}
 
 	/**
@@ -89,10 +89,42 @@ class TripsController extends \BaseController {
 	 */
 	public function user_trips($user_id)
 	{
-
-		$trips = Trip::where('user_id', $user_id);
 		$user = User::find($user_id);
+		$trips = Trip::where('user_id', '=', $user_id)->get();
 		return View::make('trips.showUserTrips')->with('trips', $trips)->with('user', $user);
+	}
+
+	/**
+	 * Search the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function filter()
+	{
+		$keyword = Input::get('location-search');
+		$startDestination = Input::get('start-destination');
+		$startDate = Input::get('start_date');
+		$endDate = Input::get('end_date');
+		$maxTravellers = Input::get('max_travellers');
+
+		$query = DB::table('trips');
+		$query->join('users', 'trips.user_id', '=', 'users.id');
+		if($keyword)
+			$query->where('destination', 'LIKE', '%'.$keyword.'%');
+		if($startDestination)
+			$query->where('start', 'LIKE', '%'.$startDestination.'%');
+		if($startDate)
+			$query->where('start_date', '>=', $startDate);
+		if($endDate)
+			$query->where('end_date', '<=', $endDate);
+		if($maxTravellers)
+			$query->where('max_travellers', '<=', $maxTravellers);
+
+		$trips = $query->get();
+		// $trips = Trip::where('destination', 'LIKE', '%'.$keyword.'%')->get();
+
+		return View::make('trips.index', compact('trips'));
 	}
 
 
