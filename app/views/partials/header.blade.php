@@ -4,7 +4,7 @@
 
 		<i class="header_logo fa fa-paper-plane fa-2x"></i>
 
-		<h3 class="header_title">Dashboard</h3>
+		<h3 class="header_title">{{{ isset($title) ? $title : 'Dashboard' }}}</h3>
 
 		<a class="header_menu-link">
 			<i class="fa fa-navicon fa-2x"></i>
@@ -21,6 +21,6 @@
 		<li> {{ HTML::link('users/trips', 'Your Trips', array('class'=>'button input_text')) }} </li>
 		<li> {{ HTML::link('users/', 'Profile', array('class'=>'button input_text')) }} </li>
 		<li> {{ HTML::link('users', 'Settings', array('class'=>'button input_text')) }} </li>
-		<li> {{ HTML::link('/logout', 'Logout', array('class'=>'button input_text')) }} </li>
+		<li> {{ HTML::link('logout', 'Logout', array('class'=>'button input_text')) }} </li>
 	</ul>
 </nav>
