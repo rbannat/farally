@@ -60,6 +60,7 @@ class TripsController extends BaseController {
 			$trip->start = Input::get('start-destination');
 			$trip->max_travellers = Input::get('max_travellers');
 			$trip->user_id = Auth::id();
+			$trip->transport = Input::get('transport');
 			$trip->save();
 
             // redirect
@@ -79,19 +80,6 @@ class TripsController extends BaseController {
 		$trip = Trip::find($id);
 		$user = Auth::user();
 		return View::make('trips.singleTrip')->with('trip', $trip);
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function user_trips($user_id)
-	{
-		$user = User::find($user_id);
-		$trips = Trip::where('user_id', '=', $user_id)->get();
-		return View::make('trips.showUserTrips')->with('trips', $trips)->with('user', $user);
 	}
 
 	/**

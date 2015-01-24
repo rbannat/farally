@@ -42,6 +42,18 @@ class UsersController extends BaseController {
 	}
 
 	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function user_trips( $user_id )
+	{
+		$trips = Trip::where('user_id', '=', $user_id)->get();
+		return View::make('users.showUserTrips')->with('trips', $trips);
+	}
+
+	/**
 	 * Zeigt Registrierungsformular
 	 *
 	 * @return Response
@@ -121,6 +133,50 @@ class UsersController extends BaseController {
 	 */
 	public function edit( $user_id = null )
 	{
+		// get the user
+		$user = User::find($user_id);
+
+		// show the edit form and pass the user
+		return View::make('users.edit')
+		->with('user', $user);
+	}
+
+	/**
+	    * Update the specified resource in storage.
+	    *
+	    * @param  int  $id
+	    * @return Response
+	    */
+	public function update($id)
+	{
+	       // validate
+	       // read more on validation at http://laravel.com/docs/validation
+		$rules = array(
+			'username'       => 'required',
+			'forename'      => 'required',
+			'lastname'      => 'required',
+			'email'      => 'required|email'
+			);
+		$validator = Validator::make(Input::all(), $rules);
+
+	       // process the login
+		if ($validator->fails()) {
+			return Redirect::to('users/' . $id . '/edit')
+			->withErrors($validator)
+			->withInput(Input::except('password'));
+		} else {
+	           // store
+			$user = User::find($id);
+			$user->username = Input::get('username');
+			$user->forename = Input::get('forename');
+			$user->lastname = Input::get('lastname');
+			$user->email = Input::get('email');
+			$user->save();
+
+	           // redirect
+			Session::flash('message', 'Successfully updated user!');
+			return View::make('users.profile', compact('user'));;
+		}
 	}
 
 	/**
