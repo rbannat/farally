@@ -1,7 +1,7 @@
 @extends('layouts.main')
-@extends('partials.header')
 @section('content')
 <body>
+	@include('partials.header')
 <section class="section main">
 	<div class="section_container">
 <article>
@@ -11,7 +11,7 @@
 	</header>
 	<section>
 		{{ HTML::ul($errors->all()) }}
-		{{ Form::open(array('url' => 'trips')) }}
+		{{ Form::open(array('url' => 'trips/add')) }}
 		<ul class="list">
 			<li>
 				{{ Form::text('title', null, array('class'=>'input input_text', 'placeholder'=>'Title')) }}
