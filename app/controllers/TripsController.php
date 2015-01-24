@@ -1,6 +1,6 @@
 <?php
 
-class TripsController extends \BaseController {
+class TripsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.

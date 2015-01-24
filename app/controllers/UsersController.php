@@ -46,7 +46,7 @@ class UsersController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function register()
+	public function getRegisterForm()
 	{
 		return View::make('users.register');
 	}
