@@ -5,11 +5,11 @@
 	<section class="section trip">
 		<header class="section_header">
 			<div class="overlay"></div>
-			<div class="map_embed" style="width: 100%; overflow: hidden; height: 100%;">
-
-			</div>
 			<div class="section_container">
 				<div class="section_container_head">
+					<figure class="profile-image">
+						<img src="{{{ $user->profile_pic }}}" alt="" >
+					</figure>
 					<h1 class="section_container_title">{{{ $user->forename }}} {{{$user->lastname }}}<br><small><i class="fa fa-user fa-1x"></i>{{{ $user->username}}}</small></h1>
 					<p></p>
 				</div>
@@ -20,9 +20,12 @@
 			<h3 class="section_container_subtitle">About</h3>
 			<!-- if there are creation errors, they will show here -->
 
-			{{ Form::model($user, array('route' => array('user.update', $user->id), 'method' => 'PUT')) }}
+			{{ Form::model($user, array('route' => array('user.update', $user->id), 'method' => 'PUT', 'files'=> true)) }}
 			<ul class="list">
 				{{ HTML::ul($errors->all()) }}
+				<li>
+					{{ Form::file('profile_pic') }}
+				</li>
 				<li>
 					{{ Form::text('username', null, array('class'=>'input input_text', 'placeholder'=>'Username')) }}
 				</li>

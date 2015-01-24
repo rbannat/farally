@@ -29,7 +29,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	    'lastname'=>'required|alpha|min:2',
 	    'email'=>'required|email|unique:users',
 	    'password'=>'required|alpha_num|min:6|confirmed',
-	    'password_confirmation'=>'required|alpha_num|min:6'
+	    'password_confirmation'=>'required|alpha_num|min:6',
+	    'profile_pic' => 'image|max:5000'
     );
 
     public function trips(){

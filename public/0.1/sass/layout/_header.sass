@@ -32,16 +32,17 @@
 	top: 17px
 	z-index: 1000
 	clear: both
-	display: block
+	display: none
 	position: fixed
 	width: 100%
 	min-height: 100%
 	top: 0px
-	transform: translateY(-100%)
+	// transform: translateY(-100%)
 	background: rgba(70, 180, 194, 0.490196)
 	@include transition(all .5s)
 	&.show
 		transform: translateY(64px)
+		display: block
 	.button
 		width: 200px
 		margin-left: auto

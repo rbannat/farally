@@ -14,7 +14,7 @@
   position: relative;
   width: 100%;
   padding: 0;
-  background-color: #2f9dab;
+  background-color: #2F9DAB;
   color: white; }
   .header .header_title {
     margin: 0;
@@ -29,11 +29,11 @@
   .header .header_menu-link {
     margin-left: 20px;
     float: right;
-    color: white;
+    color: #fff;
     cursor: pointer; }
 
 .dropdown-menu {
-  background-color: white;
+  background-color: #FFF;
   display: none;
   /* float: left */
   left: 0;
@@ -45,17 +45,17 @@
   top: 17px;
   z-index: 1000;
   clear: both;
-  display: block;
+  display: none;
   position: fixed;
   width: 100%;
   min-height: 100%;
   top: 0px;
-  transform: translateY(-100%);
   background: rgba(70, 180, 194, 0.4902);
   -webkit-transition: all 0.5s;
   transition: all 0.5s; }
   .dropdown-menu.show {
-    transform: translateY(64px); }
+    transform: translateY(64px);
+    display: block; }
   .dropdown-menu .button {
     width: 200px;
     margin-left: auto;
@@ -94,6 +94,14 @@ a {
   border: 0;
   outline: 0;
   color: #666666; }
+
+figure.profile-image {
+  max-width: 200px;
+  float: left; }
+
+img {
+  display: block;
+  max-width: 100%; }
 
 .fa {
   margin-right: 10px; }
@@ -142,7 +150,7 @@ a {
     .list .list_item .list_item_title {
       padding: 1em;
       margin: 0;
-      background: #2f9dab;
+      background: #2F9DAB;
       color: white;
       background: rgba(0, 0, 0, 0.6);
       border-radius: 10px 10px 0px 0; }
@@ -150,7 +158,7 @@ a {
       padding: 0.75em 1em 0.75em 1em;
       margin: 0;
       color: white;
-      background: #666666;
+      background: #666;
       background: rgba(0, 0, 0, 0.4); }
       .list .list_item .list_item_text:last-child {
         border-radius: 0 0 10px 10px; }
@@ -171,8 +179,8 @@ a {
   padding: 1em 1em 1em;
   cursor: pointer;
   border-radius: 6px;
-  background: #2f9dab;
-  color: white;
+  background: #2F9DAB;
+  color: #fff;
   font-family: Roboto;
   font-weight: 300; }
 
@@ -234,7 +242,7 @@ a {
       position: relative;
       float: right;
       z-index: 12;
-      text-shadow: 0px 0px 8px #222222; }
+      text-shadow: 0px 0px 8px #222; }
       .section .section_header .header-toggle:hover {
         cursor: pointer; }
       .section .section_header .header-toggle .fa-compress {
@@ -253,22 +261,25 @@ a {
       bottom: 0;
       height: 100%;
       z-index: 1;
-      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
-      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.65)));
+      background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
       -webkit-transition: all 1s;
       transition: all 1s; }
     .section .section_header .section_container_head {
-      margin-top: 150px;
       z-index: 2;
       position: relative;
       color: white;
       -webkit-transition: all 1s;
       transition: all 1s;
-      text-shadow: 0 0 4px #666666; }
+      text-shadow: 0 0 4px #666;
+      overflow: hidden; }
+      .section .section_header .section_container_head h1 {
+        margin-top: 150px;
+        float: left; }
   .section .section_container {
     margin-left: auto;
     margin-right: auto;
@@ -304,9 +315,9 @@ a {
     .section .section_metabox .section_metabox_list .section_metabox_list_item {
       display: inline-block;
       padding: 1em;
-      background: #4d5759;
+      background: #4D5759;
       color: white;
-      border-bottom: solid 1px #666666;
+      border-bottom: solid 1px #666;
       font-weight: 400;
       width: 100%; }
       .section .section_metabox .section_metabox_list .section_metabox_list_item .fa {
@@ -334,3 +345,5 @@ a {
     float: left;
     width: 33.33%;
     padding: 1em; } }
+
+/*# sourceMappingURL=main.css.map */

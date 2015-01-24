@@ -155,29 +155,47 @@ class UsersController extends BaseController {
 			'username'       => 'required',
 			'forename'      => 'required',
 			'lastname'      => 'required',
-			'email'      => 'required|email'
+			'email'      => 'required|email',
+			'profile_pic' => 'image|max:5000'
 			);
-		$validator = Validator::make(Input::all(), $rules);
 
+
+			$validator = Validator::make(Input::all(), User::$rules);
 	       // process the login
-		if ($validator->fails()) {
-			return Redirect::to('users/' . $id . '/edit')
-			->withErrors($validator)
-			->withInput(Input::except('password'));
-		} else {
+			if ($validator->fails()) {
+				return Redirect::to('users/' . $id . '/edit')
+				->withErrors($validator)
+				->withInput(Input::except('password'));
+			} else {
 	           // store
-			$user = User::find($id);
-			$user->username = Input::get('username');
-			$user->forename = Input::get('forename');
-			$user->lastname = Input::get('lastname');
-			$user->email = Input::get('email');
-			$user->save();
+				$user = User::find($id);
+
+				$file = Input::file('profile_pic');
+				if(Input::hasFile('profile_pic')){
+
+					$extension = $file->getClientOriginalExtension();
+					$directory = public_path().'/uploads/'.Auth::id();
+					$filename = Auth::id().time().".{$extension}";
+
+					$upload_success = $file->move($directory, $filename);
+
+
+					if($upload_success){
+						$user->profile_pic = URL::to('/uploads')."/".Auth::id()."/{$filename}";
+					}
+				}
+				$user->username = Input::get('username');
+				$user->forename = Input::get('forename');
+				$user->lastname = Input::get('lastname');
+				$user->email = Input::get('email');
+
+				$user->save();
 
 	           // redirect
-			Session::flash('message', 'Successfully updated user!');
-			return View::make('users.profile', compact('user'));;
+				Session::flash('message', 'Successfully updated user!');
+				return View::make('users.profile', compact('user'));;
+			}
 		}
-	}
 
 	/**
 	 * Löscht einen Nutzer

@@ -8,6 +8,9 @@
 			
 			<div class="section_container">
 				<div class="section_container_head">
+					<figure class="profile-image">
+						<img src="{{{ $user->profile_pic }}}" alt="" >
+					</figure>
 					<h1 class="section_container_title">{{{ $user->forename }}} {{{$user->lastname }}}<br><small><i class="fa fa-user fa-1x"></i>{{{ $user->username}}}</small></h1>
 					<p></p>
 				</div>
