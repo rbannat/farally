@@ -18,7 +18,7 @@ html
 	position: relative
 	margin: 0
 	padding: 0
-	background: white
+	background: $stdBackgroundColor
 	min-height: 100%
 
 // Body
@@ -27,7 +27,7 @@ body
 	margin: auto
 	padding: 0
 	font-family: Source Sans Pro, Helvetica, sans-serif
-	font-weight: 300
+	font-weight: 400
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 	color: black
@@ -35,8 +35,9 @@ body
 		background-image: url(../img/next.jpeg)
 		background-size: cover
 		background-position: center
-	&.dashboard
-		background: white
+		min-height: 100%
+		position: absolute
+		width: 100%
 
 body *
 	@include box-sizing(border-box)
@@ -47,6 +48,17 @@ a
 	outline: 0
 	color: $text_gray
 
+.fa
+	margin-right: 10px
+.filter_button
+	float: right
+	margin-right: 0
+	&:hover
+		cursor: pointer
+.filter
+	display: none
+	&.show
+		display: block
 .padding
 	padding: 5%
 .nopadding
@@ -63,16 +75,31 @@ a
 	margin: 0
 	.list_item
 		width: 100%
-		border-bottom: solid 1px #aaa
-		padding: 1em
-		&:first-child
-			border-top: solid 1px #aaa
+		background: none
+		margin-bottom: 20px
 		a:visited, a:focus
 			color: $text_gray
+		a
+			border-radius: 10px
+			display: block
+			background: url(http://designshack.net/images/designs/neat-map-icon.jpg)
+			background-size: cover
+			background-position: center
 		.list_item_title
+			padding: 1em
 			margin: 0
-			.fa
-				margin-right: 10px
+			background: $scheme_color
+			color: white
+			background: rgba(0,0,0,0.6)
+			border-radius: 10px 10px 0px 0
+		.list_item_text
+			padding: 0.75em 1em 0.75em 1em
+			margin: 0
+			color: white
+			background: #666
+			background: rgba(0,0,0,0.4)
+			&:last-child
+				border-radius: 0 0 10px 10px
 .description
 	text-overflow: ellipsis
 	overflow: hidden
@@ -89,7 +116,7 @@ a
 	padding: 1em 1em 1em
 	cursor: pointer
 	border-radius: 6px
-	background: $blue
+	background: $scheme_color
 	color: #fff
 	font-family: Roboto
 	font-weight: 300
@@ -97,7 +124,6 @@ a
 	margin-bottom: 1em
 	padding: 1em
 	font-weight: bold
-	box-shadow: 0 0 0 2px $blue
 *:focus
 	outline: 0
 	box-shadow: 0 0 0 4px #f6cc68
@@ -113,7 +139,7 @@ a
 .section
 	position: relative
 	&.content
-		background: white
+		background: $stdBackgroundColor
 		z-index: 2
 	&.login
 		padding: 5%
@@ -135,7 +161,7 @@ a
 		@include transition(all 1s)
 		&.expand
 			height: 600px
-			height: calc(100% - 64px)
+			//height: calc(100% - 64px)
 			.section_container_head
 				margin-top: 0
 				opacity: 0
@@ -173,12 +199,12 @@ a
 			bottom: 0
 			height: 100%
 			z-index: 1
-			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 75%)
-			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(75%,rgba(0,0,0,0.65)))
-			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
-			background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
-			background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
-			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 75%)
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%)
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)))
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+			background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+			background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
 			@include transition(all 1s)
 		.section_container_head
 			margin-top: 150px
@@ -238,6 +264,17 @@ a
 	.section
 		.section_header
 			height: 300px
+@media only screen and (min-width : 620px)
+	.list .list_item
+		float: left
+		width: 50%
+		padding: .75em
+		padding-top: 0
 @media only screen and (min-width : 680px)
 	.section .section_metabox .section_metabox_list .section_metabox_list_item
 		width: 33%
+@media only screen and (min-width : 960px)
+	.list .list_item
+		float: left
+		width: 33.33%
+		padding: 1em
