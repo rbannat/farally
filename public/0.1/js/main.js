@@ -5,6 +5,10 @@ $(document).ready(function() {
     	$('#site-menu').toggleClass('show');
     });
 
+    $('.filter_button').click(function() {
+        $('.filter').toggleClass('show');
+    });
+
     function initialize() {
 
     	var options = {
