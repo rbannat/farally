@@ -98,7 +98,7 @@ class TripsController extends BaseController {
 
 		$query = DB::table('trips');
 		$query->join('users', 'trips.user_id', '=', 'users.id');
-		$query->select('trips.id', 'trips.title', 'trips.destination', 'users.username');
+		$query->select('trips.id', 'trips.title', 'trips.destination', 'users.username','users.profile_pic','trips.user_id');
 		if($keyword)
 			$query->where('destination', 'LIKE', '%'.$keyword.'%');
 		if($startDestination)

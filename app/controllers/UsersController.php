@@ -38,7 +38,8 @@ class UsersController extends BaseController {
 	public function one( $user_id )
 	{
 		$user = User::findOrFail($user_id);
-		return View::make('users.profile', compact('user'));
+		$trips = Trip::where('user_id', '=', $user_id)->get();
+		return View::make('users.profile')->with('user', $user)->with('trips', $trips);
 	}
 
 	/**
@@ -156,46 +157,48 @@ class UsersController extends BaseController {
 			'forename'      => 'required',
 			'lastname'      => 'required',
 			'email'      => 'required|email',
-			'profile_pic' => 'image|max:5000'
+			'profile_pic' => 'image|max:10000'
 			);
 
 
-			$validator = Validator::make(Input::all(), User::$rules);
+		$validator = Validator::make(Input::all(), $rules);
 	       // process the login
-			if ($validator->fails()) {
-				return Redirect::to('users/' . $id . '/edit')
-				->withErrors($validator)
-				->withInput(Input::except('password'));
-			} else {
+		if ($validator->fails()) {
+			return Redirect::to('users/' . $id . '/edit')
+			->withErrors($validator)
+			->withInput(Input::except('password'));
+		} else {
 	           // store
-				$user = User::find($id);
+			$user = User::find($id);
 
-				$file = Input::file('profile_pic');
-				if(Input::hasFile('profile_pic')){
+			$file = Input::file('profile_pic');
+			if(Input::hasFile('profile_pic')){
 
-					$extension = $file->getClientOriginalExtension();
-					$directory = public_path().'/uploads/'.Auth::id();
-					$filename = Auth::id().time().".{$extension}";
+				$extension = $file->getClientOriginalExtension();
+				$directory = public_path().'/uploads/'.Auth::id();
+				$filename = Auth::id().time().".{$extension}";
 
-					$upload_success = $file->move($directory, $filename);
+				$upload_success = $file->move($directory, $filename);
 
 
-					if($upload_success){
-						$user->profile_pic = URL::to('/uploads')."/".Auth::id()."/{$filename}";
-					}
+				if($upload_success){
+					$user->profile_pic = URL::to('/uploads')."/".Auth::id()."/{$filename}";
 				}
-				$user->username = Input::get('username');
-				$user->forename = Input::get('forename');
-				$user->lastname = Input::get('lastname');
-				$user->email = Input::get('email');
+			}
+			$user->username = Input::get('username');
+			$user->forename = Input::get('forename');
+			$user->lastname = Input::get('lastname');
+			$user->email = Input::get('email');
+			$user->about = Input::get('about');
 
-				$user->save();
+			$user->save();
 
 	           // redirect
-				Session::flash('message', 'Successfully updated user!');
-				return View::make('users.profile', compact('user'));;
-			}
+			Session::flash('message', 'Successfully updated user!');
+			$trips = Trip::where('user_id', '=', $id)->get();
+			return View::make('users.profile', compact('user'))->with('trips', $trips);
 		}
+	}
 
 	/**
 	 * Löscht einen Nutzer

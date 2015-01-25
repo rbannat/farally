@@ -17,14 +17,16 @@
 		</header>
 		<div class="section_container">
 			
-			<h3 class="section_container_subtitle">About</h3>
+			<h3 class="section_container_subtitle">Edit Your Profile</h3>
 			<!-- if there are creation errors, they will show here -->
 
-			{{ Form::model($user, array('route' => array('user.update', $user->id), 'method' => 'PUT', 'files'=> true)) }}
+			{{ Form::model($user, array('route' => array('users.update', $user->id), 'method' => 'PUT', 'files'=> true)) }}
 			<ul class="list">
 				{{ HTML::ul($errors->all()) }}
 				<li>
-					{{ Form::file('profile_pic') }}
+					{{Form::label('update Profile Picture')}}
+					{{ Form::file('profile_pic', array('class' => 'input')) }}
+					
 				</li>
 				<li>
 					{{ Form::text('username', null, array('class'=>'input input_text', 'placeholder'=>'Username')) }}
@@ -37,6 +39,9 @@
 				</li>
 				<li>
 					{{ Form::text('email', null, array('class'=>'input input_text', 'placeholder'=>'Email Address')) }}
+				</li>
+				<li>
+					{{ Form::textarea('about', null, array('class'=>'input input_text', 'placeholder'=>'Schreib etwas über dich!')) }}
 				</li>
 				<li>
 					{{ Form::password('password', array('class'=>'input input_text', 'placeholder'=>'Password')) }}

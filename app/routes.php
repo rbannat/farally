@@ -26,7 +26,7 @@ Route::group(['before' => 'auth'], function()
 	Route::get('users', 'UsersController@all');
 	Route::get('users/{user_id}', array('uses'=>'UsersController@one','as' => 'users.one'));
 	Route::get('users/{user_id}/edit', 'UsersController@edit');
-	Route::put('users/{user_id}', array('uses'=>'UsersController@update','as' => 'user.update'));
+	Route::put('users/{user_id}', array('uses'=>'UsersController@update','as' => 'users.update'));
 	Route::get('users/{user_id}/trips', array('uses' => 'UsersController@user_trips', 'as' => 'users.user_trips'));
 
 	// Trip Routes
