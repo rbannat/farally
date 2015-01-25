@@ -1,27 +1,25 @@
-Sprint 1 Liste von Trips anzeigen
+Sprint 1
 ===========================================
 - Story #1: Als Nutzer kann ich Reiseziele bzw. Trips anzeigen um Reisepartner mit dem gleichen Ziel zu finden (completed)
 
-Sprint 2 Trip erstellen
+Sprint 2
 ===========================================
-- Story #2: als Nutzer kann ich Reiseziele bzw. Trips anzeigen um Reisepartner mit dem gleichen Ziel zu finden (completed)
+- Story #2: als Nutzer kann ich Reiseziele bzw. Trips anzeigen um Reisepartner mit dem gleichen Ziel zu finden (not completed)
 
-Sprint 3 Backlog
+Sprint 3 
 ===========================================
-- completion of Story #2: markup default template, css trip overview, template trip erstellen (not committed)
-- completion of Story #3
+- completion of Story #2: markup default template, css trip overview, template trip erstellen (completed)
+- Story #3: Als Nutzer kann ich nach Reisezielen bzw. Trips suchen und filtern um Reisepartner mit dem gleichen Ziel zu finden (not completed)
 
+Sprint 4 Backlog
+===========================================
+- completion of Story #3: Als Nutzer kann ich nach Reisezielen bzw. Trips suchen und filtern um Reisepartner mit dem gleichen Ziel zu finden (committed)
+- Story #4:kann ich mein persönliches Profil und Kontaktinformationen bearbeiten (not committed)
+- Story #5:kann ich eine Einzelansicht des Trips sehen mit Liste der Reisenden und dazugehörige Daten (not committed)
 
 Project Backlog 
 ===========================================
-(either only Stories that are not yet started or, if included,
-clearly marked as done / been part of a sprint)
-(Prioritized for Business Value)
 
 Als Nutzer... :
-Story #3:kann ich nach Reisezielen bzw. Trips suchen und filtern um Reisepartner mit dem gleichen Ziel zu finden
-Story #4:kann ich eine Liste mit Reisenden zu dem gesuchte Ziel sehen
-Story #5:kann ich anderen Reisenden Mitreiseanfragen senden 
-Story #6:kann ich mein persönliches Profil und Kontaktinformationen bearbeiten
-Story #7:kann ich angeben mit welchen Transportmitteln ich die Reise antreten möchte
+Story #6:kann ich anderen Reisenden Mitreiseanfragen senden und empfangen
 

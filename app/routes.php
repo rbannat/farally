@@ -24,15 +24,17 @@ Route::group(['before' => 'auth'], function()
 	// User Routes
 	Route::get('/', 'UsersController@dashboard');
 	Route::get('users', 'UsersController@all');
-	Route::get('users/{user_id}', 'UsersController@one');
+	Route::get('users/{user_id}', array('uses'=>'UsersController@one','as' => 'users.one'));
+	Route::get('users/{user_id}/edit', 'UsersController@edit');
+	Route::put('users/{user_id}', array('uses'=>'UsersController@update','as' => 'users.update'));
+	Route::get('users/{user_id}/trips', array('uses' => 'UsersController@user_trips', 'as' => 'users.user_trips'));
 
 	// Trip Routes
 	Route::get('trips', 'TripsController@all');
-	Route::get('users/{user_id}/trips', 'TripsController@user_trips');
 	Route::post('trips/add', 'TripsController@add');
 	Route::post('search', 'TripsController@filter');
 	Route::get('trips/create', 'TripsController@getCreateForm');
-	Route::get('trips/{trip_id}', 'TripsController@one');
+	Route::get('trips/{trip_id}', array('uses' => 'TripsController@one', 'as' => 'trips.one'));
 });
 
 

@@ -17,6 +17,15 @@
 				{{ Form::number('max_travellers', null, array('class'=>'input input_text', 'placeholder'=>'Max. travellers')) }}
 
 			</li>
+			<li>
+				{{ Form::checkbox('transport[]', 'car') }} Car
+				{{ Form::checkbox('transport[]', 'bus') }} Bus
+				{{ Form::checkbox('transport[]', 'train') }} Train
+				{{ Form::checkbox('transport[]', 'plane') }} Plane
+				{{ Form::checkbox('transport[]', 'bicycle') }} Bicycle
+				{{ Form::checkbox('transport[]', 'hitchhiking') }} Hitchhiking
+			</li>
+			
 		</ul>
 		{{ Form::submit('Search', array('class'=>'button'))}}
 		{{ Form::close() }}

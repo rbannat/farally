@@ -12,7 +12,7 @@ class UsersController extends BaseController {
 	public function dashboard()
 	{
 		$user= Auth::user();
-		$trips = Trip::all();
+		$trips = Trip::orderBy('created_at', 'DESC')->get();
 		return View::make('dashboard', compact('user','trips'));
 	}
 
@@ -38,7 +38,20 @@ class UsersController extends BaseController {
 	public function one( $user_id )
 	{
 		$user = User::findOrFail($user_id);
-		return View::make('users.profile', compact('user'));
+		$trips = Trip::where('user_id', '=', $user_id)->get();
+		return View::make('users.profile')->with('user', $user)->with('trips', $trips);
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function user_trips( $user_id )
+	{
+		$trips = Trip::where('user_id', '=', $user_id)->get();
+		return View::make('users.showUserTrips')->with('trips', $trips);
 	}
 
 	/**
@@ -121,6 +134,70 @@ class UsersController extends BaseController {
 	 */
 	public function edit( $user_id = null )
 	{
+		// get the user
+		$user = User::find($user_id);
+
+		// show the edit form and pass the user
+		return View::make('users.edit')
+		->with('user', $user);
+	}
+
+	/**
+	    * Update the specified resource in storage.
+	    *
+	    * @param  int  $id
+	    * @return Response
+	    */
+	public function update($id)
+	{
+	       // validate
+	       // read more on validation at http://laravel.com/docs/validation
+		$rules = array(
+			'username'       => 'required',
+			'forename'      => 'required',
+			'lastname'      => 'required',
+			'email'      => 'required|email',
+			'profile_pic' => 'image|max:10000'
+			);
+
+
+		$validator = Validator::make(Input::all(), $rules);
+	       // process the login
+		if ($validator->fails()) {
+			return Redirect::to('users/' . $id . '/edit')
+			->withErrors($validator)
+			->withInput(Input::except('password'));
+		} else {
+	           // store
+			$user = User::find($id);
+
+			$file = Input::file('profile_pic');
+			if(Input::hasFile('profile_pic')){
+
+				$extension = $file->getClientOriginalExtension();
+				$directory = public_path().'/uploads/'.Auth::id();
+				$filename = Auth::id().time().".{$extension}";
+
+				$upload_success = $file->move($directory, $filename);
+
+
+				if($upload_success){
+					$user->profile_pic = URL::to('/uploads')."/".Auth::id()."/{$filename}";
+				}
+			}
+			$user->username = Input::get('username');
+			$user->forename = Input::get('forename');
+			$user->lastname = Input::get('lastname');
+			$user->email = Input::get('email');
+			$user->about = Input::get('about');
+
+			$user->save();
+
+	           // redirect
+			Session::flash('message', 'Successfully updated user!');
+			$trips = Trip::where('user_id', '=', $id)->get();
+			return View::make('users.profile', compact('user'))->with('trips', $trips);
+		}
 	}
 
 	/**

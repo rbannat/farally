@@ -1,0 +1,216 @@
+html
+	position: relative
+	margin: 0
+	padding: 0
+	background: $stdBackgroundColor
+	min-height: 100%
+
+body
+	position: relative
+	margin: auto
+	padding: 0
+	font-family: Source Sans Pro, Helvetica, sans-serif
+	font-weight: 400
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	color: black
+	&.login
+		background-image: url(../img/next.jpeg)
+		background-size: cover
+		background-position: center
+		min-height: 100%
+		position: absolute
+		width: 100%
+
+body *
+	@include box-sizing(border-box)
+
+a
+	text-decoration: none
+	border: 0
+	outline: 0
+	color: $text_gray
+ul, li 
+	list-style: none
+	padding: 0
+	margin: 0
+figure 
+	
+	&.profile-image
+		max-width: 200px
+		float: left
+
+img 
+	display: block
+	max-width: 100%
+	height:auto
+
+.row
+	width: 100%
+	position: relative
+	float: left
+
+
+.list_item
+	width: 100%
+	background: none
+	margin-bottom: 20px
+	a
+		color: #fff
+	header
+		a
+			border-radius: 10px
+			display: block
+			background: url(http://designshack.net/images/designs/neat-map-icon.jpg)
+			background-size: cover
+			background-position: center
+	.list_item_title
+		padding: 1em
+		margin: 0
+		background: $scheme_color
+		color: white
+		background: rgba(0,0,0,0.6)
+		border-radius: 10px 10px 0px 0
+	.list_item_text
+		padding: 0.75em 1em 0.75em 1em
+		margin: 0
+		color: white
+		background: #666
+		background: rgba(0,0,0,0.4)
+		&:last-child
+			border-radius: 0 0 10px 10px
+	img 
+		width: 50px
+		display: inline-block
+.section
+	position: relative
+	&.content
+		background: $stdBackgroundColor
+		z-index: 2
+	&.login
+		padding: 5%
+		min-height: 100%
+		background: -moz-linear-gradient(top,  rgba(53,89,165,.5) 0%, rgba(125,185,232,0) 100%)
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(53,89,165,.5)), color-stop(100%,rgba(125,185,232,0)))
+		background: -webkit-linear-gradient(top,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		background: -o-linear-gradient(top,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		background: -ms-linear-gradient(top,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		background: linear-gradient(to bottom,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
+		color: white
+		background-position: fixed
+	.section_header
+		position: relative
+		height: 300px
+		max-height: calc(100% - 64px)
+		z-index: 2
+		position: relative
+		@include transition(all 1s)
+
+		.section_container
+			background: none
+
+		&.expand
+			height: 600px
+			//height: calc(100% - 64px)
+			.section_container_head
+				margin-top: 0
+				opacity: 0
+
+			.map_embed
+				height: 100%
+			.overlay
+				height: 0
+				opacity: 0
+			.header-toggle
+				.fa-expand
+					display: none
+				.fa-compress
+					display: block
+		.header-toggle
+			color: white
+			position: relative
+			float: right
+			z-index: 12
+			text-shadow: 0px 0px 8px #222
+			&:hover
+				cursor: pointer
+			.fa-compress
+				display: none
+		.map_embed
+			position: absolute
+			z-index: 0
+			top: 0
+			height: 120%
+		.embed_map
+			width: 100%
+			height: 120%
+		.overlay
+			position: absolute
+			width: 100%
+			bottom: 0
+			height: 100%
+			z-index: 1
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%)
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)))
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+			background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+			background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+			@include transition(all 1s)
+		.section_container_head
+			z-index: 2
+			position: relative
+			color: white
+			@include transition(all 1s)
+			text-shadow: 0 0 4px #666
+			overflow: hidden
+			h1 
+				margin-top: 150px
+				float: left
+			button
+				float: left
+
+	.section_container
+		margin-left: auto
+		margin-right: auto
+		max-width: $container-width
+		width: 100%
+		padding: 1em
+		background: #F9F9F9
+		&:after
+			content: ""
+			display: table
+			clear: both
+		.section_container_title
+			font-size: 30px
+			font-family: Lato
+			small
+				font-size: 20px
+				font-weight: 300
+				.fa
+					margin-right: 10px
+		.section_container_title_small
+			font-size: 24px
+			font-family: Lato
+			.fa
+				margin-right: 20px
+		.section_container_subtitle
+			text-transform: uppercase
+			letter-spacing: 5px
+			font-weight: 400
+			text-align: center
+	.section_metabox
+		position: relative
+		margin: auto
+		max-width: $container-width
+		.section_metabox_list
+			.section_metabox_list_item
+				display: inline-block
+				padding: 1em
+				background: #4D5759
+				color: white
+				border-bottom: solid 1px #666
+				font-weight: 400
+				width: 100%
+				.fa
+					margin-right: 10px

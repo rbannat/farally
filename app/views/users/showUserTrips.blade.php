@@ -1,11 +1,10 @@
 @extends('layouts.main')
 @section('content')
-<body class="dashboard">
+<body>
 	@include('partials.header')
-	@include('partials.tripsearch')
-	<section class="section list">
-		<div class="section_container">
-			<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Searched Trips</h3>
+	<section class="section main">
+		<div class="section_container list">
+			<h3 class="section_container_title_small ">Your Trips</h3>
 			@if(count($trips))
 				@foreach ($trips as $trip)
 				<article class="list_item">
@@ -18,14 +17,14 @@
 					<div class="content">
 						<p class="list_item_text"><i class="fa fa-location-arrow fa-1x"></i>{{{ $trip->destination }}}</p>
 						<p class="list_item_text">
-							<a class="" href="{{ URL::route('users.one', $trip->user_id) }}">
-								@if($trip->profile_pic)
-								<img src="{{{$trip->profile_pic}}}" alt="">
+							<a class="" href="{{ URL::route('users.one', $trip->user->id) }}">
+							@if($trip->user->profile_pic)
+								<img src="{{{$trip->user->profile_pic}}}" alt="">
 
 								@else
 								<i class="fa fa-user fa-1x"></i>
 								@endif
-								{{{ $trip->username }}}
+								{{{ $trip->user->username }}}
 							</a>
 						</p>
 					</div>
@@ -37,5 +36,6 @@
 	{{ HTML::script('0.1/js/jquery/jquery-2.1.3.min.js') }}
 	{{ HTML::script('0.1/js/main.js')}}
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
 </body>
 @stop

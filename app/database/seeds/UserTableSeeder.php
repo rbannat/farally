@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder {
 			'birthdate' => '1992-06-10',
 			'gender' => 'male',
 			'about' => 'Hi. I am Stefan. I like to troll around in the web',
-			'profile_image' => '',
+			'profile_pic' => '',
 		));
 
 		User::create(array(
@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder {
             'birthdate' => '1990-01-01',
             'gender' => 'male',
             'about' => 'Ich mag Toastbrot.',
-            'profile_image' => '',
+            'profile_pic' => '',
         ));	}
 
 }
