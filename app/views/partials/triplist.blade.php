@@ -13,7 +13,7 @@
 			<div class="list_item_content">
 				<p class="list_item_text"><i class="fa fa-location-arrow fa-1x"></i>{{{ $trip->destination }}}</p>
 				<p class="list_item_text">
-					<a class="" href="{{ URL::route('users.one', $trip->user->id) }}">
+					<a class="profile-link" href="{{ URL::route('users.one', $trip->user->id) }}">
 						@if($trip->user->profile_pic)<img src="{{{$trip->user->profile_pic}}}" alt="">
 						@else<i class="fa fa-user fa-1x"></i>
 						@endif

@@ -51,7 +51,16 @@
 				<h3 class="section_container_subtitle">Description</h3>
 				<p>{{{ $trip->description }}}</p>
 				<h3 class="section_container_subtitle">Travellers</h3>
-				<p> / {{{ $trip->max_travellers }}}</p>
+				<p> 
+					@foreach($participants as $participant)
+					<a class="profile-link" href="{{ URL::route('users.one', $trip->user->id) }}">
+						@if($participant->profile_pic)<img src="{{{$participant->profile_pic}}}" alt="" class="profile-pic-small">
+						@else<i class="fa fa-user fa-1x"></i>
+						@endif
+						<span>{{{ $participant->username }}}</span>
+					</a>
+					@endforeach
+				</p>
 			</article>
 		</div>
 	</section>

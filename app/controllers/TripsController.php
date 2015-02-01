@@ -78,7 +78,8 @@ class TripsController extends BaseController {
 	public function one($id)
 	{
 		$trip = Trip::find($id);
-		return View::make('trips.singleTrip')->with('trip', $trip);
+		$participants = $trip->joinedUsers;
+		return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants);
 	}
 
 	/**
