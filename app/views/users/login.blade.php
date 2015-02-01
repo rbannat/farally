@@ -7,7 +7,7 @@
 				<i class="fa fa-paper-plane fa-4x"></i>
 				<h1 class="section_container_title">Trips.<br><small>Your chance for your next adventure.</small></h1>
 			</div>
-			<div class="row">
+			<div class="row center">
 				{{ Form::open(array('url'=>'/login', 'class'=>'max_width_400')) }}
 				    <p class="text center">Please Sign In</p>
 

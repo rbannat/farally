@@ -134,12 +134,18 @@ class UsersController extends BaseController {
 	 */
 	public function edit( $user_id = null )
 	{
-		// get the user
-		$user = User::find($user_id);
+		if (Auth::id() === $user_id) {
+			// get the user
+			$user = User::find($user_id);
 
-		// show the edit form and pass the user
-		return View::make('users.edit')
-		->with('user', $user);
+			// show the edit form and pass the user
+			return View::make('users.edit')
+			->with('user', $user);
+		} else {
+			$user = User::findOrFail($user_id);
+			$trips = Trip::where('user_id', '=', $user_id)->get();
+			return View::make('users.profile')->with('user', $user)->with('trips', $trips);
+		}
 	}
 
 	/**

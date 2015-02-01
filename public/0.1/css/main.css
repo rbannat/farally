@@ -67,7 +67,7 @@ img {
   background: none;
   margin-bottom: 20px; }
   .list_item a {
-    color: #fff; }
+    color: white; }
   .list_item header a {
     border-radius: 10px;
     display: block;
@@ -77,7 +77,7 @@ img {
   .list_item .list_item_title {
     padding: 1em;
     margin: 0;
-    background: #2F9DAB;
+    background: #2f9dab;
     color: white;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px 10px 0px 0; }
@@ -85,7 +85,7 @@ img {
     padding: 0.75em 1em 0.75em 1em;
     margin: 0;
     color: white;
-    background: #666;
+    background: #666666;
     background: rgba(0, 0, 0, 0.4); }
     .list_item .list_item_text:last-child {
       border-radius: 0 0 10px 10px; }
@@ -138,7 +138,7 @@ img {
       position: relative;
       float: right;
       z-index: 12;
-      text-shadow: 0px 0px 8px #222; }
+      text-shadow: 0px 0px 8px #222222; }
       .section .section_header .header-toggle:hover {
         cursor: pointer; }
       .section .section_header .header-toggle .fa-compress {
@@ -157,12 +157,12 @@ img {
       bottom: 0;
       height: 100%;
       z-index: 1;
-      background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.65)));
-      background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
-      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.65)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
       -webkit-transition: all 1s;
       transition: all 1s; }
     .section .section_header .section_container_head {
@@ -171,7 +171,7 @@ img {
       color: white;
       -webkit-transition: all 1s;
       transition: all 1s;
-      text-shadow: 0 0 4px #666;
+      text-shadow: 0 0 4px #666666;
       overflow: hidden; }
       .section .section_header .section_container_head h1 {
         margin-top: 150px;
@@ -183,8 +183,7 @@ img {
     margin-right: auto;
     max-width: 960px;
     width: 100%;
-    padding: 1em;
-    background: #F9F9F9; }
+    padding: 1em; }
     .section .section_container:after {
       content: "";
       display: table;
@@ -214,9 +213,9 @@ img {
     .section .section_metabox .section_metabox_list .section_metabox_list_item {
       display: inline-block;
       padding: 1em;
-      background: #4D5759;
+      background: #4d5759;
       color: white;
-      border-bottom: solid 1px #666;
+      border-bottom: solid 1px #666666;
       font-weight: 400;
       width: 100%; }
       .section .section_metabox .section_metabox_list .section_metabox_list_item .fa {
@@ -226,7 +225,7 @@ img {
   position: relative;
   width: 100%;
   padding: 0;
-  background-color: #2F9DAB;
+  background-color: #2f9dab;
   color: white; }
   .header .section_container {
     background: none; }
@@ -243,11 +242,11 @@ img {
   .header .header_menu-link {
     margin-left: 20px;
     float: right;
-    color: #fff;
+    color: white;
     cursor: pointer; }
 
 .dropdown-menu {
-  background-color: #FFF;
+  background-color: white;
   display: none;
   /* float: left */
   left: 0;
@@ -312,8 +311,8 @@ img {
   padding: 0.8em 1.5em;
   cursor: pointer;
   border-radius: 6px;
-  background: #2F9DAB;
-  color: #fff;
+  background: #2f9dab;
+  color: white;
   font-family: Roboto;
   font-weight: 300;
   font-size: 1em;
@@ -360,5 +359,3 @@ img {
     float: left;
     width: 33.33%;
     padding: 1em; } }
-
-/*# sourceMappingURL=main.css.map */
