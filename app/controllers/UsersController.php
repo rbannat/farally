@@ -50,8 +50,9 @@ class UsersController extends BaseController {
 	 */
 	public function user_trips( $user_id )
 	{
+		$user = User::findOrFail($user_id);
 		$trips = Trip::where('user_id', '=', $user_id)->get();
-		return View::make('users.showUserTrips')->with('trips', $trips);
+		return View::make('users.showUserTrips')->with('trips', $trips)->with('user', $user);
 	}
 
 	/**
