@@ -38,9 +38,19 @@ Route::group(['before' => 'auth'], function()
 
 	// Request Routes
 	Route::post('trips/{trip_id}', 'TripRequestsController@add');
+
+	// Notification Route
+	Route::get('notifications', array('uses' => 'NotificationsController@all', 'as' => 'notifications.all'));
 });
 
 View::Composer('partials.notifications', function($view)
+{
+	$user= Auth::user();
+	$notifications = $user->notifications()->unread()->get();
+	$view->with('notifications', $notifications);
+});
+
+View::Composer('partials.notificationlist', function($view)
 {
 	$user= Auth::user();
 	$notifications = $user->notifications()->get();
