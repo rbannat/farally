@@ -64,7 +64,7 @@
 				<p>
 					@if($trip->user->id != Auth::id())
 					@if($is_requested)
-					Trip is requested!
+					Trip request is sent!
 					@else
 					{{ HTML::ul($errors->all()) }}
 					{{ Form::open(array('action' => array('TripRequestsController@add', $trip->id))) }}
