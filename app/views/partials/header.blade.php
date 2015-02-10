@@ -5,7 +5,7 @@
 		<i class="header_logo fa fa-paper-plane fa-2x"></i>
 
 		<h3 class="header_title">{{{ isset($title) ? $title : 'Dashboard' }}}</h3>
-
+		@include('partials.notifications')
 		<a class="header_menu-link">
 			<i class="fa fa-navicon fa-2x"></i>
 		</a>
