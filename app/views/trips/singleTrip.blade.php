@@ -61,6 +61,14 @@
 					</a>
 					@endforeach
 				</p>
+				<p>
+					{{ HTML::ul($errors->all()) }}
+					{{ Form::open(array('action' => array('TripRequestsController@add', $trip->id))) }}
+					
+					{{ Form::submit('Join Trip', array('class'=>'button')) }}
+					
+					{{ Form::close() }}
+				</p>
 			</article>
 		</div>
 	</section>

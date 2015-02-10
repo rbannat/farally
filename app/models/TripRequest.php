@@ -1,6 +1,6 @@
 <?php
 
-class Request extends Eloquent {
+class TripRequest extends Eloquent {
 	protected $fillable = [
 	'user_id',
 	'trip_id',

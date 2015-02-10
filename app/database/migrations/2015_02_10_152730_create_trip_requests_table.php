@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRequestTable extends Migration {
+class CreateTripRequestsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateRequestTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('requests', function(Blueprint $table)
+		Schema::create('trip_requests', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
@@ -30,6 +30,6 @@ class CreateRequestTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('requests');	}
+		Schema::drop('trip_requests');	}
 
 }
