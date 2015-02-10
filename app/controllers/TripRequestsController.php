@@ -20,6 +20,16 @@ class TripRequestsController extends BaseController {
 		$trip = Trip::find($trip_id);
 		$participants = $trip->joinedUsers;
 
+		$user = User::find($trip->user_id);
+
+		$user->newNotification()
+		    ->withType('request')
+		    ->withSubject('my title')
+		    ->withBody('<User X> has requested to join your trip!')
+		    ->withFromUser(Auth::id())
+		    ->regarding($trip)
+		    ->deliver();
+
 		return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('is_requested', true);
 	}
 

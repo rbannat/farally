@@ -35,6 +35,13 @@ class Notification extends Eloquent {
 		return $this;
 	}
 
+	public function withFromUser($fromUser)
+	{
+		$this->from_user = $fromUser;
+
+		return $this;
+	}
+
 	public function regarding($trip)
 	{
 		if(is_object($trip))
