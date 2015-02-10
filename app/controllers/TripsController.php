@@ -79,7 +79,18 @@ class TripsController extends BaseController {
 	{
 		$trip = Trip::find($id);
 		$participants = $trip->joinedUsers;
-		return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants);
+
+		$user_requests = DB::table('trip_requests')
+		->where('user_id', '=', Auth::user()->id)
+		->where('trip_id', '=', $id)
+		->first();
+
+
+		if (is_null($user_requests)) {
+			return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('is_requested', false);
+		} else {
+			return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('is_requested', true);
+		}
 	}
 
 	/**

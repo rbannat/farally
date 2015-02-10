@@ -62,12 +62,21 @@
 					@endforeach
 				</p>
 				<p>
+					@if($trip->user->id != Auth::id())
+					@if($is_requested)
+					Trip is requested!
+					@else
 					{{ HTML::ul($errors->all()) }}
 					{{ Form::open(array('action' => array('TripRequestsController@add', $trip->id))) }}
 					
 					{{ Form::submit('Join Trip', array('class'=>'button')) }}
 					
 					{{ Form::close() }}
+					@endif
+					@endif
+
+
+
 				</p>
 			</article>
 		</div>

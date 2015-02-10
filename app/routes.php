@@ -37,7 +37,7 @@ Route::group(['before' => 'auth'], function()
 	Route::get('trips/{trip_id}', array('uses' => 'TripsController@one', 'as' => 'trips.one'));
 
 	// Request Routes
-	Route::post('requests/add/{trip_id}', 'TripRequestsController@add');
+	Route::post('trips/{trip_id}', 'TripRequestsController@add');
 });
 
 

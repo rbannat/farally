@@ -20,7 +20,7 @@ class TripRequestsController extends BaseController {
 		$trip = Trip::find($trip_id);
 		$participants = $trip->joinedUsers;
 
-		return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants);
+		return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('is_requested', true);
 	}
 
 
