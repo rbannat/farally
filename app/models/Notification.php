@@ -62,6 +62,6 @@ class Notification extends Eloquent {
 
 	public function scopeUnread($query)
 	{
-		return $query->where('is_read', '=', 0);
+		return $query->where('is_read', '=', 0)->where('user_id', '=', Auth::id());
 	}
 }
