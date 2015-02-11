@@ -43,7 +43,7 @@ class TripsTableSeeder extends Seeder {
 			))->joinedUsers()->attach([1,2]);
 
 		Trip::create(array(
-			'title' => 'Trip to Munich',
+			'title' => 'Trip to Berlin',
 			'destination' => 'Munich, Germany',
 			'start' => 'Berlin, Germany',
 			'max_travellers' => '5',
@@ -55,7 +55,7 @@ class TripsTableSeeder extends Seeder {
 			))->joinedUsers()->attach([1,2]);
 
 		Trip::create(array(
-			'title' => 'Trip to Munich',
+			'title' => 'Trip to Barcelona',
 			'destination' => 'Munich, Germany',
 			'start' => 'Berlin, Germany',
 			'max_travellers' => '5',

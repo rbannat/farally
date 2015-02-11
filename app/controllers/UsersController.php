@@ -52,7 +52,17 @@ class UsersController extends BaseController {
 	{
 		$user = User::findOrFail($user_id);
 		$trips = Trip::where('user_id', '=', $user_id)->get();
-		return View::make('users.showUserTrips')->with('trips', $trips)->with('user', $user);
+
+		$pendingRequests = Trip::join('trip_requests', 'trips.id', '=', 'trip_requests.trip_id')
+		->select('trips.user_id', 'trips.id', 'trips.title', 'trips.destination')
+		->where('trip_requests.user_id', '=' , $user_id)
+		->where('trip_requests.status', '=', 0)
+		->get();
+
+		return View::make('users.showUserTrips')
+			->with('trips', $trips)
+			->with('user', $user)
+			->with('pendingRequests', $pendingRequests);
 	}
 
 	/**
