@@ -23,15 +23,38 @@ class TripRequestsController extends BaseController {
 		$user = User::find($trip->user_id);
 
 		$user->newNotification()
-		    ->withType('request')
-		    ->withSubject('my title')
-		    ->withBody('<User X> has requested to join your trip!')
-		    ->withFromUser(Auth::id())
-		    ->regarding($trip)
-		    ->deliver();
+		->withType('request')
+		->withSubject('users title')
+		->withBody('users content')
+		->withFromUser(Auth::id())
+		->regarding($trip)
+		->deliver();
 
 		return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('is_requested', true);
 	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$tripRequest = TripRequest::find($id);
+
+		if ( Input::has('accept') )
+		{
+			$tripRequest->status = '1';
+		} elseif ( Input::has('decline') ) {
+			$tripRequest->status = '2';
+		}
+
+		$tripRequest->save();
+
+	          // redirect
+		Session::flash('message', 'Successfully updated status of Request!');
+		return View::make('notifications.index');
+	}	
 
 
 }

@@ -13,7 +13,8 @@ class NotificationsTableSeeder extends Seeder {
 			'body' => 'text body',
 			'trip_id' => 1,
 			'type' => 'request',
-			'is_read' => 0
+			'is_read' => 0,
+			'trip_request_id' => 1
 			));
 
 		Notification::create(array(
@@ -23,7 +24,8 @@ class NotificationsTableSeeder extends Seeder {
 			'body' => 'text body',
 			'trip_id' => 2,
 			'type' => 'request',
-			'is_read' => 0
+			'is_read' => 0,
+			'trip_request_id' => 1
 			));
 
 		Notification::create(array(
@@ -33,7 +35,8 @@ class NotificationsTableSeeder extends Seeder {
 			'body' => 'text body',
 			'trip_id' => 1,
 			'type' => 'accepted',
-			'is_read' => 0
+			'is_read' => 0,
+			'trip_request_id' => 1
 			));
 
 
@@ -44,7 +47,8 @@ class NotificationsTableSeeder extends Seeder {
 			'body' => 'text body',
 			'trip_id' => 2,
 			'type' => 'accepted',
-			'is_read' => 0
+			'is_read' => 0,
+			'trip_request_id' => 1
 			));
 
 	}

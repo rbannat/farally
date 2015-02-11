@@ -9,8 +9,11 @@
 			<div class="notification_title">{{ $notification->subject }}</div>
 			<div class="body">{{ $notification->body }}</div>
 			<div class="request_buttons">
-				{{ HTML::link('', 'Accept', array('class'=>'button input_text')) }}
-				{{ HTML::link('', 'Decline', array('class'=>'button input_text')) }}
+
+				{{ Form::open(array('action' => array('TripRequestsController@update', $notification->trip_request_id), 'method' => 'put', )) }}
+				{{ Form::submit('Accept', array('name' => 'accept', 'class' => 'button')) }}
+				{{ Form::submit('Decline', array('name' => 'decline', 'class' => 'button')) }}
+				{{ Form::close() }}
 			</div>
 			
 
@@ -19,13 +22,13 @@
 			<p>{{{ $notification->fromUser->forename }}} accepted your Triprequest for "{{{$notification->regardingTrip->title}}}":</p>
 			<div class="notification_title">{{ $notification->subject }}</div>
 			<div class="body">{{ $notification->body }}</div>
-		
+
 			@elseif($notification->type == 'declined')
 
 			<p>{{{ $notification->fromUser->forename }}} declined your Triprequest for "{{{$notification->regardingTrip->title}}}":</p>
 			<div class="notification_title">{{ $notification->subject }}</div>
 			<div class="body">{{ $notification->body }}</div>
-		
+
 			@endif
 		</div>
 		@endforeach

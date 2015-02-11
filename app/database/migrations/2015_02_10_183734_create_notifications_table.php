@@ -29,6 +29,13 @@ class CreateNotificationsTable extends Migration {
 			$table->boolean('is_read')->default(0);
 			$table->dateTime('sent_at')->nullable();
 			$table->timestamps();
+
+			$table->integer('trip_request_id')->unsigned()->nullable();
+			
+
+			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('from_user')->references('id')->on('users');
+			$table->foreign('trip_request_id')->references('id')->on('trip_requests');
 		});
 	}
 
