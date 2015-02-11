@@ -228,6 +228,8 @@ img {
       width: 100%; }
       .section .section_metabox .section_metabox_list .section_metabox_list_item .fa {
         margin-right: 10px; }
+      .section .section_metabox .section_metabox_list .section_metabox_list_item.transport span {
+        margin-right: 20px; }
 
 .header {
   position: relative;
@@ -294,10 +296,9 @@ img {
   margin-bottom: 1em;
   padding: 1em;
   font-weight: bold; }
-
-*:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #f6cc68; }
+  .input:focus {
+    outline: 0;
+    box-shadow: 0 0 0 4px #f6cc68; }
 
 .label, .input {
   width: 100%;
@@ -326,6 +327,11 @@ img {
   font-size: 1em;
   border: 0;
   border-radius: 3px; }
+  .button.wide {
+    width: 100%; }
+  .button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 4px #f6cc68; }
 
 .filter_button {
   float: right;
@@ -349,6 +355,9 @@ img {
   position: relative;
   max-width: 400px;
   margin: auto; }
+
+.capitalize {
+  text-transform: capitalize; }
 
 @media only screen and (min-width: 480px) {
   .section .section_header {

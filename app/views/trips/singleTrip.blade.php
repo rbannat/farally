@@ -25,20 +25,20 @@
 			<ul class="section_metabox_list list">
 				<li class="section_metabox_list_item destination"><i class="fa fa-location-arrow"></i>{{{ $trip->destination }}}</li>
 				<li class="section_metabox_list_item start_date"><i class="fa fa-calendar"></i>{{{ $trip->start_date }}} - {{{ $trip->end_date }}}</li>
-				<li class="section_metabox_list_item transport">
+				<li class="section_metabox_list_item transport capitalize">
 					@foreach(unserialize($trip->transport) as $transport)
 					@if ($transport === 'car')
-					<i class="fa fa-car"></i>{{{ $transport }}}
+					<span><i class="fa fa-car"></i>{{{ $transport }}}</span>
 					@elseif ($transport === 'plane')
-					<i class="fa fa-plane"></i>{{{ $transport }}}
+					<span><i class="fa fa-plane"></i>{{{ $transport }}}</span>
 					@elseif ($transport === 'bus')
-					<i class="fa fa-bus"></i>{{{ $transport }}}
+					<span><i class="fa fa-bus"></i>{{{ $transport }}}</span>
 					@elseif ($transport === 'train')
-					<i class="fa fa-train"></i>{{{ $transport }}}
+					<span><i class="fa fa-train"></i>{{{ $transport }}}</span>
 					@elseif ($transport === 'hitchhiking')
-					<i class="fa fa-truck"></i>{{{ $transport }}}
+					<span><i class="fa fa-truck"></i>{{{ $transport }}}</span>
 					@elseif ($transport === 'bicycle')
-					<i class="fa fa-bicycle"></i>{{{ $transport }}}
+					<span><i class="fa fa-bicycle"></i>{{{ $transport }}}</span>
 					@else
 					no transport selected
 					@endif
@@ -51,7 +51,7 @@
 				<h3 class="section_container_subtitle">Description</h3>
 				<p>{{{ $trip->description }}}</p>
 				<h3 class="section_container_subtitle">Travellers</h3>
-				<p> 
+				<p>
 					@foreach($participants as $participant)
 					<a class="profile-link" href="{{ URL::route('users.one', $trip->user->id) }}">
 						@if($participant->profile_pic)<img src="{{{$participant->profile_pic}}}" alt="" class="profile-pic-small">
@@ -68,9 +68,9 @@
 					@else
 					{{ HTML::ul($errors->all()) }}
 					{{ Form::open(array('action' => array('TripRequestsController@add', $trip->id))) }}
-					
+
 					{{ Form::submit('Join Trip', array('class'=>'button')) }}
-					
+
 					{{ Form::close() }}
 					@endif
 					@endif
