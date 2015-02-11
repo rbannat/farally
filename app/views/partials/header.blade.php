@@ -2,7 +2,9 @@
 
 	<div class="section_container">
 
-		<i class="header_logo fa fa-paper-plane fa-2x"></i>
+		<a href="./" class="header_logo">
+			<i class="fa fa-paper-plane fa-2x"></i>
+		</a>
 
 		<h3 class="header_title">{{{ isset($title) ? $title : 'Dashboard' }}}</h3>
 		<a class="header_menu-link">

@@ -248,7 +248,10 @@ img {
     line-height: 1.5em; }
   .header .header_logo {
     float: left;
-    margin-right: 20px; }
+    margin-right: 20px;
+    color: white; }
+    .header .header_logo:hover {
+      cursor: pointer; }
   .header .header_menu-link {
     margin-left: 20px;
     float: right;
@@ -364,6 +367,9 @@ img {
 
 .capitalize {
   text-transform: capitalize; }
+
+.white {
+  color: white; }
 
 @media only screen and (min-width: 480px) {
   .section .section_header {
