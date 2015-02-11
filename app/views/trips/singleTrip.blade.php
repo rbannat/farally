@@ -52,12 +52,15 @@
 				<h3 class="section_container_subtitle">Travellers</h3>
 				<p>
 					@foreach($participants as $participant)
-					<a class="profile-link badge" href="{{ URL::route('users.one', $trip->user->id) }}">
-						@if($participant->profile_pic)<img src="{{{$participant->profile_pic}}}" alt="" class="profile-pic-small">
-						@else<i class="fa no_pic fa-user fa-1x"></i>
-						@endif
-						<span>{{{ $participant->username }}}</span>
+					@if($participant->profile_pic)
+					<a class="profile-link badge img" href="{{ URL::route('users.one', $trip->user->id) }}">
+						<img src="{{{$participant->profile_pic}}}" alt="" class="profile-pic-small"><span class="desc">{{{ $participant->username }}}</span>
 					</a>
+					@else
+					<a class="profile-link badge" href="{{ URL::route('users.one', $trip->user->id) }}">
+						<i class="fa no_pic fa-user fa-1x"></i><span>{{{ $participant->username }}}</span>
+					</a>
+					@endif
 					@endforeach
 				</p>
 				<p>

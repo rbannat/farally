@@ -14,13 +14,27 @@
 	color: white
 
 .badge
-	padding: .75em
+	padding: 1em
 	background: white
 	color: #332
 	border-radius: 25px
 	padding-left: 0
 	margin-right: 1em
+	max-height: 50px
+	&.img
+		padding-top: 0
+		padding-bottom: 0
+		.profile-pic-small
+			border-radius: 25px
+		.desc
+			display: inline-block
+			float: left
+			line-height: 3em
+			margin-left: .5em
+	> *
+		float: left
 	&:hover
 		color: black
+
 .no_pic
 	padding-left: 1em
