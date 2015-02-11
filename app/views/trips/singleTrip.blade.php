@@ -15,7 +15,6 @@
 				</div>
 				<div class="section_container_head">
 					<h1 class="section_container_title">{{{ $trip->title }}}<br><small><i class="fa fa-user fa-1x"></i>{{{ $trip->username}}}</small></h1>
-					<p id="destination">{{{ $trip->destination }}}</p>
 				</div>
 			</div>
 		</header>
@@ -23,7 +22,7 @@
 	<section class="section content">
 		<div class="section_metabox">
 			<ul class="section_metabox_list list">
-				<li class="section_metabox_list_item destination"><i class="fa fa-location-arrow"></i>{{{ $trip->destination }}}</li>
+				<li class="section_metabox_list_item destination"><i class="fa fa-location-arrow"></i><span id="destination">{{{ $trip->destination }}}</span></li>
 				<li class="section_metabox_list_item start_date"><i class="fa fa-calendar"></i>{{{ $trip->start_date }}} - {{{ $trip->end_date }}}</li>
 				<li class="section_metabox_list_item transport capitalize">
 					@foreach(unserialize($trip->transport) as $transport)
@@ -53,9 +52,9 @@
 				<h3 class="section_container_subtitle">Travellers</h3>
 				<p>
 					@foreach($participants as $participant)
-					<a class="profile-link" href="{{ URL::route('users.one', $trip->user->id) }}">
+					<a class="profile-link badge" href="{{ URL::route('users.one', $trip->user->id) }}">
 						@if($participant->profile_pic)<img src="{{{$participant->profile_pic}}}" alt="" class="profile-pic-small">
-						@else<i class="fa fa-user fa-1x"></i>
+						@else<i class="fa no_pic fa-user fa-1x"></i>
 						@endif
 						<span>{{{ $participant->username }}}</span>
 					</a>
