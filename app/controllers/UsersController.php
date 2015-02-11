@@ -59,10 +59,17 @@ class UsersController extends BaseController {
 		->where('trip_requests.status', '=', 0)
 		->get();
 
+		$acceptedRequests = Trip::join('trip_requests', 'trips.id', '=', 'trip_requests.trip_id')
+		->select('trips.user_id', 'trips.id', 'trips.title', 'trips.destination')
+		->where('trip_requests.user_id', '=' , $user_id)
+		->where('trip_requests.status', '=', 1)
+		->get();
+
 		return View::make('users.showUserTrips')
-			->with('trips', $trips)
-			->with('user', $user)
-			->with('pendingRequests', $pendingRequests);
+		->with('trips', $trips)
+		->with('user', $user)
+		->with('acceptedRequests', $acceptedRequests)
+		->with('pendingRequests', $pendingRequests);
 	}
 
 	/**
