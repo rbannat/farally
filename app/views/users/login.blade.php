@@ -14,12 +14,12 @@
 				    {{ Form::text('email', null, array('class'=>'input input_text', 'placeholder'=>'Email Address')) }}
 				    {{ Form::password('password', array('class'=>'input input_text', 'placeholder'=>'Password')) }}
 
-				    {{ Form::submit('Login', array('class'=>'button button_green'))}}
+				    {{ Form::submit('Login', array('class'=>'button button_green wide'))}}
 				{{ Form::close() }}
 
 				<div class="box box_sigin max_width_400">
 					<p class="text center">OR</p>
-					{{ HTML::link('register', 'Sign Up', array('class'=>'button input_text')) }}
+					{{ HTML::link('register', 'Sign Up', array('class'=>'button wide input_text')) }}
 				</div>
 			</div>
 

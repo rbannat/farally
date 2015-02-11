@@ -1,11 +1,11 @@
 .button
-	
+
 	text-align: center
 	border: solid 2px
 	cursor: pointer
 	display: inline-block
 	margin-top: 2em
-	padding: 0.8em 1.5em 
+	padding: 0.8em 1.5em
 	cursor: pointer
 	border-radius: 6px
 	background: $scheme_color
@@ -15,6 +15,11 @@
 	font-size: 1em
 	border: 0
 	border-radius: 3px
+	&.wide
+		width: 100%
+	&:focus
+		outline: 0
+		box-shadow: 0 0 0 4px #f6cc68
 
 .filter_button
 	float: right
