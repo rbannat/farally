@@ -9,12 +9,12 @@
 			<div class="notification_title">{{ $notification->subject }}</div>
 			<div class="body">{{ $notification->body }}</div>
 			<div class="request_buttons">
-				@if($notification->tripRequest)
-					@if($notification->tripRequest->status == '1')
-					You accepted the request from {{{ $notification->fromUser->forename }}} for {{{$notification->regardingTrip->title}}}
-					@elseif($notification->tripRequest->status == '2')
-					You declined the request from {{{ $notification->fromUser->forename }}}
-					@endif
+				
+				@if($notification->tripRequest->status == '1')
+				You accepted the request from {{{ $notification->fromUser->forename }}} for {{{$notification->regardingTrip->title}}}
+				@elseif($notification->tripRequest->status == '2')
+				You declined the request from {{{ $notification->fromUser->forename }}}
+				
 				@else
 				{{ Form::open(array('action' => array('TripRequestsController@update', $notification->trip_request_id), 'method' => 'put', )) }}
 				{{ Form::submit('Accept', array('name' => 'accept', 'class' => 'button')) }}

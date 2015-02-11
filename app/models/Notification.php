@@ -59,6 +59,16 @@ class Notification extends Eloquent {
 		return $this;
 	}
 
+	public function regardingRequest($regardingRequest)
+	{
+		if(is_object($regardingRequest))
+		{
+			$this->trip_request_id   = $regardingRequest->id;
+		}
+
+		return $this;
+	}
+
 	public function regarding($trip)
 	{
 		if(is_object($trip))

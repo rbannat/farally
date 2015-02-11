@@ -38,7 +38,7 @@ Route::group(['before' => 'auth'], function()
 
 	// Request Routes
 	Route::post('trips/{trip_id}', 'TripRequestsController@add');
-	Route::put('requests/{request_id}', array('uses'=>'TripRequestsController@update','as' => 'tripRequests.update'));
+	Route::put('requests/{trip_request_id}', array('uses'=>'TripRequestsController@update','as' => 'tripRequests.update'));
 
 	// Notification Route
 	Route::get('notifications', array('uses' => 'NotificationsController@all', 'as' => 'notifications.all'));

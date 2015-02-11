@@ -27,6 +27,7 @@ class TripRequestsController extends BaseController {
 		->withSubject('users title')
 		->withBody('users content')
 		->withFromUser(Auth::id())
+		->regardingRequest($trip_request)
 		->regarding($trip)
 		->deliver();
 
@@ -41,37 +42,37 @@ class TripRequestsController extends BaseController {
 	public function update($id)
 	{
 		$tripRequest = TripRequest::find($id);
-
 		$trip = Trip::find($tripRequest->trip_id);
+		$user = User::find($tripRequest->user_id);
 
-		$user = User::find($trip->user_id);
-
-		$tripRequest->save();
 		
 		if ( Input::has('accept') )
 		{
 			$tripRequest->status = '1';
-
+			$tripRequest->save();
+			
 			$user->newNotification()
 			->withType('accepted')
 			->withSubject('users title')
 			->withBody('users content')
 			->withFromUser(Auth::id())
+			->regardingRequest($tripRequest)
 			->regarding($trip)
 			->deliver();
 
 		} elseif ( Input::has('decline') ) {
 			$tripRequest->status = '2';
+			$tripRequest->save();
 
 			$user->newNotification()
 			->withType('declined')
 			->withSubject('users title')
 			->withBody('users content')
 			->withFromUser(Auth::id())
+			->regardingRequest($tripRequest)
 			->regarding($trip)
 			->deliver();
 		}
-
 
 	    // redirect
 		Session::flash('message', 'Successfully updated status of Request!');
