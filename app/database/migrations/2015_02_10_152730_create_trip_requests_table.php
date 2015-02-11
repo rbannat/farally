@@ -19,8 +19,9 @@ class CreateTripRequestsTable extends Migration {
 			$table->integer('trip_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->tinyInteger('status')->default(0);
-			$table->foreign('user_id')->references('id')->on('users');
+			
 			$table->foreign('trip_id')->references('id')->on('trips');
+			$table->foreign('user_id')->references('id')->on('users');
 		});	}
 
 	/**

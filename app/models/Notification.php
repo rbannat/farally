@@ -14,6 +14,23 @@ class Notification extends Eloquent {
 		return $this->belongsTo('User');
 	}
 
+	public function tripRequest()
+	{
+		return $this->belongsTo('TripRequest', 'trip_request_id');
+	}
+
+	public function fromUser()
+	{
+		return $this->belongsTo('User', 'from_user');
+	}
+
+	public function regardingTrip()
+	{
+		return $this->belongsTo('Trip', 'trip_id');
+	}
+
+
+	//Setter Methods
 	public function withSubject($subject)
 	{
 		$this->subject = $subject;

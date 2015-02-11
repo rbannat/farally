@@ -18,6 +18,7 @@ class CreateTripUserMappingTable extends Migration {
 			$table->timestamps();
 			$table->integer('trip_id')->unsigned();
 			$table->integer('user_id')->unsigned();
+			
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->foreign('trip_id')->references('id')->on('trips');
 		});
