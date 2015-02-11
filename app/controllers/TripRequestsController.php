@@ -42,16 +42,37 @@ class TripRequestsController extends BaseController {
 	{
 		$tripRequest = TripRequest::find($id);
 
+		$trip = Trip::find($tripRequest->trip_id);
+
+		$user = User::find($trip->user_id);
+
 		if ( Input::has('accept') )
 		{
 			$tripRequest->status = '1';
+
+			$user->newNotification()
+			->withType('accepted')
+			->withSubject('users title')
+			->withBody('users content')
+			->withFromUser(Auth::id())
+			->regarding($trip)
+			->deliver();
+
 		} elseif ( Input::has('decline') ) {
 			$tripRequest->status = '2';
+
+			$user->newNotification()
+			->withType('declined')
+			->withSubject('users title')
+			->withBody('users content')
+			->withFromUser(Auth::id())
+			->regarding($trip)
+			->deliver();
 		}
 
 		$tripRequest->save();
 
-	          // redirect
+	    // redirect
 		Session::flash('message', 'Successfully updated status of Request!');
 		return View::make('notifications.index');
 	}	
