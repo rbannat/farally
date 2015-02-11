@@ -254,6 +254,12 @@ img {
     float: right;
     color: white;
     cursor: pointer; }
+  .header .header_notifications-link {
+    margin-left: 20px;
+    float: right;
+    color: white;
+    cursor: pointer;
+    line-height: 2em; }
 
 .dropdown-menu {
   background-color: white;
