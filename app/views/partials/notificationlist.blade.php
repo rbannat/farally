@@ -12,37 +12,40 @@
 			<div class="request_buttons">
 
 				@if($notification->tripRequest->status == '1')
-				You accepted the request from {{{ $notification->fromUser->forename }}} for {{{$notification->regardingTrip->title}}}
-				@elseif($notification->tripRequest->status == '2')
-				You declined the request from {{{ $notification->fromUser->forename }}}
 
+					You accepted the request from {{{ $notification->fromUser->forename }}} for {{{$notification->regardingTrip->title}}}
+
+				@elseif($notification->tripRequest->status == '2')
+
+					You declined the request from {{{ $notification->fromUser->forename }}}
+				
 				@else
-				{{ Form::open(array('action' => array('TripRequestsController@update', $notification->trip_request_id), 'method' => 'put', )) }}
-				{{ HTML::ul($errors->all(), array('class' => 'error')) }}
-				{{ Form::textarea('body', null, array('placeholder' => 'Type in a message')) }}
-				{{ Form::submit('Accept', array('name' => 'accept', 'class' => 'button accept')) }}
-				{{ Form::submit('Decline', array('name' => 'decline', 'class' => 'button decline')) }}
-				{{ Form::close() }}
+
+					{{ Form::open(array('action' => array('TripRequestsController@update', $notification->trip_request_id), 'method' => 'put', )) }}
+					{{ HTML::ul($errors->all(), array('class' => 'error')) }}
+					{{ Form::textarea('body', null, array('placeholder' => 'Type in a message')) }}
+					{{ Form::submit('Accept', array('name' => 'accept', 'class' => 'button accept')) }}
+					{{ Form::submit('Decline', array('name' => 'decline', 'class' => 'button decline')) }}
+					{{ Form::close() }}
+					
 				@endif
 
 			</div>
 
-
 			@elseif($notification->type == 'accepted')
 
 			<p>{{{ $notification->fromUser->forename }}} accepted your Triprequest for "{{{$notification->regardingTrip->title}}}":</p>
-			
 			<div class="body">{{ $notification->body }}</div>
 
 			@elseif($notification->type == 'declined')
 
 			<p>{{{ $notification->fromUser->forename }}} declined your Triprequest for "{{{$notification->regardingTrip->title}}}":</p>
-			
 			<div class="body">{{ $notification->body }}</div>
 
 			@endif
 		</div>
 		@endforeach
 		@endif
+
 	</div>
 </section>

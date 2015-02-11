@@ -54,7 +54,7 @@ View::Composer('partials.notifications', function($view)
 View::Composer('partials.notificationlist', function($view)
 {
 	$user= Auth::user();
-	$notifications = $user->notifications()->get();
+	$notifications = $user->notifications()->orderBy('created_at','desc')->get();
 	$view->with('notifications', $notifications);
 });
 
