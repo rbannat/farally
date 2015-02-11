@@ -16,18 +16,32 @@ class UserTableSeeder extends Seeder {
 			'gender' => 'male',
 			'about' => 'Hi. I am Stefan. I like to troll around in the web',
 			'profile_pic' => '',
-		));
+			));
 
 		User::create(array(
-            'username' => 'rennitlb',
-            'password' => Hash::make('rene'),
-            'forename' => 'Rene',
-            'lastname' => 'Bannat',
-            'email' => 'rennitlb@gmail.com',
-            'birthdate' => '1990-01-01',
-            'gender' => 'male',
-            'about' => 'Ich mag Toastbrot.',
-            'profile_pic' => '',
-        ));	}
+			'username' => 'rennitlb',
+			'password' => Hash::make('rene'),
+			'forename' => 'Rene',
+			'lastname' => 'Bannat',
+			'email' => 'rennitlb@gmail.com',
+			'birthdate' => '1990-01-01',
+			'gender' => 'male',
+			'about' => 'Ich mag Toastbrot.',
+			'profile_pic' => '',
+			));	
+
+		User::create(array(
+			'username' => 'max',
+			'password' => Hash::make('max'),
+			'forename' => 'Max',
+			'lastname' => 'Mustermann',
+			'email' => 'max.mustermann@gmail.com',
+			'birthdate' => '1990-01-01',
+			'gender' => 'male',
+			'about' => 'Ich mag Lorem Ipsum.',
+			'profile_pic' => '',
+			));	
+
+	}
 
 }

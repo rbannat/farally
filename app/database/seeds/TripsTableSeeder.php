@@ -42,5 +42,29 @@ class TripsTableSeeder extends Seeder {
 			'transport' => serialize(["car", "plane", "train"])
 			))->joinedUsers()->attach([1,2]);
 
+		Trip::create(array(
+			'title' => 'Trip to Munich',
+			'destination' => 'Munich, Germany',
+			'start' => 'Berlin, Germany',
+			'max_travellers' => '5',
+			'description' => 'I wanna go to munich',
+			'start_date' => '2015-02-01',
+			'end_date' => '2015-02-07',
+			'user_id' => '3',
+			'transport' => serialize(["car", "plane", "train"])
+			))->joinedUsers()->attach([1,2]);
+
+		Trip::create(array(
+			'title' => 'Trip to Munich',
+			'destination' => 'Munich, Germany',
+			'start' => 'Berlin, Germany',
+			'max_travellers' => '5',
+			'description' => 'I wanna go to munich',
+			'start_date' => '2015-02-01',
+			'end_date' => '2015-02-07',
+			'user_id' => '3',
+			'transport' => serialize(["car", "plane", "train"])
+			))->joinedUsers()->attach([1,2]);
+
 	}
 }

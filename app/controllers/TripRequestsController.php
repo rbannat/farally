@@ -46,6 +46,8 @@ class TripRequestsController extends BaseController {
 
 		$user = User::find($trip->user_id);
 
+		$tripRequest->save();
+		
 		if ( Input::has('accept') )
 		{
 			$tripRequest->status = '1';
@@ -70,7 +72,6 @@ class TripRequestsController extends BaseController {
 			->deliver();
 		}
 
-		$tripRequest->save();
 
 	    // redirect
 		Session::flash('message', 'Successfully updated status of Request!');
