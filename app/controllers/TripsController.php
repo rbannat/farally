@@ -86,10 +86,10 @@ class TripsController extends BaseController {
 		->first();
 
 
-		if (is_null($user_requests)) {
+		if (isset($user_requests)) {
 			return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('status', $user_requests->status);
 		} else {
-			return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('status', $user_requests->status);
+			return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants);
 		}
 	}
 
