@@ -21,16 +21,17 @@
 			</div>
 		</header>
 		<div class="section_container list">
-			<h3 class="section_container_subtitle">Contact</h3>
-			<p>
-				{{{ $user->email }}}
-			</p>
+			<h3 class="section_container_subtitle">Info</h3>
+			<ul>
+				<li>Email: {{{ $user->email }}}</li>
+				<li>Gender: {{{ $user->gender }}}</li>
+				<li>Date of birth: {{{ date("d M Y",strtotime($user->birthdate)) }}}</li>
+			</ul>
 			<h3 class="section_container_subtitle">About</h3>
 			<p>
 				{{{ $user->about }}}
 			</p>
 			@if($trips)
-			<h3 class="section_container_subtitle">Hosted Trips</h3>
 				@include('partials.triplist')
 			@endif
 		</div>
