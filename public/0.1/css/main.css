@@ -391,7 +391,8 @@ img {
 .notification {
   background: white;
   border-radius: 10px;
-  padding: 1em; }
+  padding: 1em;
+  margin-bottom: 1em; }
 
 .padding {
   padding: 5%; }
