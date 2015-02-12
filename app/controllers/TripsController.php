@@ -126,6 +126,7 @@ class TripsController extends BaseController {
 				$query->where('transport', 'LIKE', '%'.$value.'%');
 			}
 		}
+		$query->where('user_id', '!=', Auth::id());
 		$query->orderBy('trips.created_at', 'desc');
 		$trips = $query->get();
 		// $trips = Trip::where('destination', 'LIKE', '%'.$keyword.'%')->get();
