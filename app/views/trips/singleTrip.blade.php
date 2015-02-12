@@ -28,12 +28,12 @@
 		<div class="section_metabox">
 			<ul class="section_metabox_list list">
 
-				<li class="section_metabox_list_item destination"><i class="fa fa-location-arrow"></i>{{{ $trip->destination }}}</li>
+				<li class="section_metabox_list_item destination"><i class="fa fa-location-arrow"></i><span id="destination">{{{ $trip->destination }}}</span></li>
 
 				<li class="section_metabox_list_item start_date">
 				<i class="fa fa-calendar"></i>
-				from 
-				{{{  date("d M Y",strtotime($trip->start_date)) }}} 
+				from
+				{{{  date("d M Y",strtotime($trip->start_date)) }}}
 				@if(!starts_with($trip->end_date, '0000'))
 				to {{{ $trip->end_date }}}
 				@endif
