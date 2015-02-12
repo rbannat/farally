@@ -14,7 +14,10 @@
 					<i class="fa fa-compress fa-2x"></i>
 				</div>
 				<div class="section_container_head">
-					<h1 class="section_container_title">{{{ $trip->title }}}<br><small><i class="fa fa-user fa-1x"></i>{{{ $trip->username}}}</small></h1>
+
+					<h1 class="section_container_title">{{{ $trip->title }}}<br><small><i class="fa fa-user fa-1x"></i>{{{ $trip->user->username}}}</small></h1>
+					<p id="destination">{{{ $trip->destination }}}</p>
+
 				</div>
 			</div>
 		</header>
