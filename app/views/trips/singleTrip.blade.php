@@ -68,8 +68,10 @@
 					@if($is_requested)
 					Trip request is sent!
 					@else
-					{{ HTML::ul($errors->all()) }}
+					{{ HTML::ul($errors->all(), array('class' => 'error')) }}
 					{{ Form::open(array('action' => array('TripRequestsController@add', $trip->id))) }}
+
+					{{ Form::textarea('body', null, array('placeholder' => 'Type in a message')) }}
 
 					{{ Form::submit('Join Trip', array('class'=>'button')) }}
 

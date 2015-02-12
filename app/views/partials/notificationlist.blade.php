@@ -5,6 +5,7 @@
 		@foreach($notifications as $notification)
 		<div class="notification {{ $notification->type }}">
 			@if($notification->type == 'request')
+
 			<h3>{{{ $notification->fromUser->forename }}} wants to join your Trip "{{{$notification->regardingTrip->title}}}":</h3>
 			<div class="notification_title">{{ $notification->subject }}</div>
 			<div class="body">{{ $notification->body }}</div>
@@ -17,6 +18,8 @@
 
 				@else
 				{{ Form::open(array('action' => array('TripRequestsController@update', $notification->trip_request_id), 'method' => 'put', )) }}
+				{{ HTML::ul($errors->all(), array('class' => 'error')) }}
+				{{ Form::textarea('body', null, array('placeholder' => 'Type in a message')) }}
 				{{ Form::submit('Accept', array('name' => 'accept', 'class' => 'button accept')) }}
 				{{ Form::submit('Decline', array('name' => 'decline', 'class' => 'button decline')) }}
 				{{ Form::close() }}
@@ -28,13 +31,13 @@
 			@elseif($notification->type == 'accepted')
 
 			<p>{{{ $notification->fromUser->forename }}} accepted your Triprequest for "{{{$notification->regardingTrip->title}}}":</p>
-			<div class="notification_title">{{ $notification->subject }}</div>
+			
 			<div class="body">{{ $notification->body }}</div>
 
 			@elseif($notification->type == 'declined')
 
 			<p>{{{ $notification->fromUser->forename }}} declined your Triprequest for "{{{$notification->regardingTrip->title}}}":</p>
-			<div class="notification_title">{{ $notification->subject }}</div>
+			
 			<div class="body">{{ $notification->body }}</div>
 
 			@endif
