@@ -5,7 +5,7 @@
 		@foreach($notifications as $notification)
 		<div class="notification {{ $notification->type }}">
 			@if($notification->type == 'request')
-			<p>{{{ $notification->fromUser->forename }}} wants to join your Trip "{{{$notification->regardingTrip->title}}}":</p>
+			<h3>{{{ $notification->fromUser->forename }}} wants to join your Trip "{{{$notification->regardingTrip->title}}}":</h3>
 			<div class="notification_title">{{ $notification->subject }}</div>
 			<div class="body">{{ $notification->body }}</div>
 			<div class="request_buttons">
