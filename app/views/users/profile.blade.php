@@ -2,7 +2,7 @@
 @section('content')
 <body>
 	@include('partials.header', array('title'=> $user->forename . ' ' . $user->lastname))
-	<section class="section trip">
+	<section class="section profile">
 		<header class="section_header">
 			<div class="overlay"></div>
 
@@ -14,7 +14,7 @@
 					<h1 class="section_container_title">{{{ $user->forename }}} {{{$user->lastname }}}<br><small><i class="fa fa-user fa-1x"></i>{{{ $user->username}}}</small></h1>
 					@if (Auth::id() == $user->id)
 					<!-- edit this user (uses the edit method found at GET /users/{id}/edit -->
-					<a class="button" href="{{ URL::to('users/' . $user->id . '/edit') }}">Edit Profile</a>
+					<a class="button edit" href="{{ URL::to('users/' . $user->id . '/edit') }}">Edit Profile</a>
 					@endif
 				</div>
 			</div>

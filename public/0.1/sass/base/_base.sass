@@ -39,6 +39,10 @@ figure
 	&.profile-image
 		max-width: 200px
 		float: left
+		margin: 0
+		border-radius: 50%
+		overflow: hidden
+		box-shadow: 0 0 10px #555
 
 img
 	display: block
@@ -106,6 +110,18 @@ img
 		background: linear-gradient(to bottom,  rgba(53,89,165,.5) 0%,rgba(125,185,232,0) 100%)
 		color: white
 		background-position: fixed
+	&.profile
+		.section_header
+			height: auto
+			background: url(../img/ny.jpg)
+			background-size: cover
+			background-position: bottom center
+			.section_container_head
+				padding-top: 1em
+				padding-bottom: 1em
+				.section_container_title
+					margin-top: 60px
+					margin-left: 20px
 	.section_header
 		position: relative
 		height: 300px
@@ -190,6 +206,7 @@ img
 		.section_container_title
 			font-size: 30px
 			font-family: Lato
+			text-shadow: 0 0 10px #555
 			small
 				font-size: 20px
 				font-weight: 300

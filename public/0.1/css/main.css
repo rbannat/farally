@@ -51,7 +51,11 @@ ul, li {
 
 figure.profile-image {
   max-width: 200px;
-  float: left; }
+  float: left;
+  margin: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px #555555; }
 
 img {
   display: block;
@@ -117,6 +121,17 @@ img {
     background: linear-gradient(to bottom, rgba(53, 89, 165, 0.5) 0%, rgba(125, 185, 232, 0) 100%);
     color: white;
     background-position: fixed; }
+  .section.profile .section_header {
+    height: auto;
+    background: url(../img/ny.jpg);
+    background-size: cover;
+    background-position: bottom center; }
+    .section.profile .section_header .section_container_head {
+      padding-top: 1em;
+      padding-bottom: 1em; }
+      .section.profile .section_header .section_container_head .section_container_title {
+        margin-top: 60px;
+        margin-left: 20px; }
   .section .section_header {
     position: relative;
     height: 300px;
@@ -198,7 +213,8 @@ img {
       clear: both; }
     .section .section_container .section_container_title {
       font-size: 30px;
-      font-family: Lato; }
+      font-family: Lato;
+      text-shadow: 0 0 10px #555555; }
       .section .section_container .section_container_title small {
         font-size: 20px;
         font-weight: 300; }
@@ -341,6 +357,9 @@ img {
   .button:focus {
     outline: 0;
     box-shadow: 0 0 0 4px #f6cc68; }
+  .button.edit {
+    float: left;
+    margin: auto; }
 
 .filter_button {
   float: right;
@@ -410,7 +429,10 @@ img {
       margin-right: 2%; }
     .list .list_item:nth-child(odd) {
       margin-right: 0;
-      margin-left: 2%; } }
+      margin-left: 2%; }
+
+  .button.edit {
+    float: right; } }
 @media only screen and (min-width: 680px) {
   .section .section_metabox .section_metabox_list .section_metabox_list_item {
     width: 33%; } }
