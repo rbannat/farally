@@ -16,8 +16,10 @@
 				<div class="section_container_head">
 
 					<h1 class="section_container_title">{{{ $trip->title }}}<br><small><i class="fa fa-user fa-1x"></i>{{{ $trip->user->username}}}</small></h1>
-					<p id="destination">{{{ $trip->destination }}}</p>
 
+					@if (Auth::id() == $trip->user_id)
+					<!-- <a class="button" href="{{ URL::to('trips/' . $trip->id . '/edit') }}">Edit Trip</a> -->
+					@endif
 				</div>
 			</div>
 		</header>

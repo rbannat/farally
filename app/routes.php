@@ -33,6 +33,8 @@ Route::group(['before' => 'auth'], function()
 	Route::get('trips', 'TripsController@all');
 	Route::post('trips/add', 'TripsController@add');
 	Route::post('search', 'TripsController@filter');
+	Route::get('trips/{trip_id}/edit',  array('uses'=>'TripsController@edit','as' => 'trips.edit'));
+	Route::put('trips/{trip_id}', array('uses'=>'TripsController@update','as' => 'trips.update'));
 	Route::get('trips/create', 'TripsController@getCreateForm');
 	Route::get('trips/{trip_id}', array('uses' => 'TripsController@one', 'as' => 'trips.one'));
 

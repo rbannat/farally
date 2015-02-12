@@ -43,11 +43,10 @@ class TripsController extends BaseController {
 			);
 		$validator = Validator::make(Input::all(), $rules);
 
-        // process the login
+
 		if ($validator->fails()) {
 			return Redirect::to('trips/create')
-			->withErrors($validator)
-			->withInput(Input::except('password'));
+			->withErrors($validator);
 		} else {
 
             // store
@@ -143,7 +142,15 @@ class TripsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		// if (Auth::check()) {
+		// 	$trip = Trip::find($id);
+		
+		// 	// if (Auth::id() == $trip->id){
+		// 		return View::make('trips.edit')->with('trip', $trip);
+		// 	// }  else {
+		// 	// 	return Redirect::route('trips.one', array('trip_id', $trip->id));
+		// 	// }
+		// }
 	}
 
 
@@ -153,9 +160,42 @@ class TripsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($trip_id)
 	{
-		//
+
+		// $trip = Trip::find($trip_id);
+		//  // validate
+  //       // read more on validation at http://laravel.com/docs/validation
+		// $rules = array(
+		// 	'title'       => 'required',
+		// 	'destination'       => 'required',
+		// 	'description' => 'required',
+		// 	'start_date'      => 'required',
+		// 	'start-destination'      => 'required'
+		// 	);
+		// $validator = Validator::make(Input::all(), $rules);
+
+		// if ($validator->fails()) {
+		// 	return Redirect::route('trips.edit', array('trip_id', $trip->id))
+		// 	->withErrors($validator);
+		// } else {
+
+		// 	$trip->title       = Input::get('title');
+		// 	$trip->destination = Input::get('destination');
+		// 	$trip->description = Input::get('description');
+		// 	$trip->start_date = Input::get('start_date');
+		// 	$trip->end_date = Input::get('end_date');
+		// 	$trip->start = Input::get('start-destination');
+		// 	$trip->max_travellers = Input::get('max_travellers');
+		// 	$trip->user_id = Auth::id();
+		// 	$trip->transport = serialize(Input::get('transport'));
+		// 	$trip->save();
+
+		// 	$trips = Trip::where('user_id', '=', Auth::id())->get();
+
+		// 	Session::flash('message', 'Successfully updated user!');
+		// 	return Redirect::route('users.user_trips', array('user_id', Auth::id()));
+		// }
 	}
 
 
