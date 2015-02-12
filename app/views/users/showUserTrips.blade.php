@@ -8,7 +8,7 @@
 		<section class="section list">
 			<div class="section_container">
 				<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Pending Requests</h3>
-				@if(count($pendingRequests))
+				@if(isset($pendingRequests))
 
 				@foreach ($pendingRequests as $pendingRequest)
 				<article class="list_item">
@@ -38,7 +38,7 @@
 		<section class="section list">
 			<div class="section_container">
 				<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Accepted Requests</h3>
-				@if(count($acceptedRequests))
+				@if(isset($acceptedRequests))
 
 				@foreach ($acceptedRequests as $acceptedRequest)
 				<article class="list_item">
