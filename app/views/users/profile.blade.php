@@ -31,10 +31,10 @@
 			<p>
 				{{{ $user->about }}}
 			</p>
-			@if($trips)
-				@include('partials.triplist')
-			@endif
 		</div>
+		@if($trips)
+			@include('partials.triplist')
+		@endif
 	</section>
 	{{ HTML::script('0.1/js/jquery/jquery-2.1.3.min.js') }}
 	{{ HTML::script('0.1/js/main.js')}}
