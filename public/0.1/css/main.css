@@ -55,7 +55,8 @@ figure.profile-image {
   margin: 0;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 10px #555555; }
+  box-shadow: 0 0 10px #555555;
+  max-height: 200px; }
 
 img {
   display: block;
@@ -443,7 +444,8 @@ img {
     padding-top: 0;
     padding-bottom: 0; }
     .badge.img .profile-pic-small {
-      border-radius: 25px; }
+      border-radius: 25px;
+      max-height: 50px; }
     .badge.img .desc {
       display: inline-block;
       float: left;
