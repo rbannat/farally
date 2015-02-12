@@ -79,13 +79,16 @@
 					@endforeach
 				</p>
 				<p>
+
 					@if ($trip->user->id != Auth::id())
-					@if ($status == 0)
-					Trip request is sent!
-					@elseif ($status == 1)
-					Trip request is accepted!
-					@elseif ($status == 2)
-					Trip request is declined!
+					@if (isset($status))
+						@if ($status == 0)
+						Trip request is sent!
+						@elseif ($status == 1)
+						Trip request is accepted!
+						@elseif ($status == 2)
+						Trip request is declined!
+						@endif
 					@else
 					{{ HTML::ul($errors->all(), array('class' => 'error')) }}
 					{{ Form::open(array('action' => array('TripRequestsController@add', $trip->id))) }}
