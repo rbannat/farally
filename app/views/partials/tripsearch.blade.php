@@ -5,29 +5,55 @@
 		{{ Form::text('location-search', null, array('class'=>'input input_text', 'placeholder'=>'search by destination', 'id'=>'location-search')) }}
 		<ul class="list filter">
 			<li>
-				{{ Form::text('start-destination', null, array('class'=>'input input_text', 'placeholder'=>'Start place')) }}
-			</li>
-			<li>
-				{{Form::input('date','start_date', null, array('class'=>'input input_text'))}}
-			</li>
-			<li>
-				{{Form::input('date','end_date', null, array('class'=>'input input_text'))}}
+				{{ Form::text('start-destination', null, array('class'=>'input input_text', 'placeholder'=>'Start')) }}
 			</li>
 			<li>
 				{{ Form::number('max_travellers', null, array('class'=>'input input_text', 'placeholder'=>'Max. travellers')) }}
 
 			</li>
 			<li>
-				{{ Form::checkbox('transport[]', 'car') }} Car
-				{{ Form::checkbox('transport[]', 'bus') }} Bus
-				{{ Form::checkbox('transport[]', 'train') }} Train
-				{{ Form::checkbox('transport[]', 'plane') }} Plane
-				{{ Form::checkbox('transport[]', 'bicycle') }} Bicycle
-				{{ Form::checkbox('transport[]', 'hitchhiking') }} Hitchhiking
+				<label class="label">Earliest start date</label>
+				{{Form::input('date','start_date', null, array('class'=>'input input_text'))}}
 			</li>
-			
+			<li>
+				<label class="label">Latest return date</label>
+				{{Form::input('date','end_date', null, array('class'=>'input input_text'))}}
+			</li>
+			<li>
+				<div class="badge checkbox" onclick="checktoggle(this);">
+					<i class="fa no_pic fa-user fa-1x"></i><span>{{ Form::checkbox('transport[]', 'car', false, array('class'=>'checkbox')) }} Car</span>
+				</div>
+				<div class="badge checkbox" onclick="checktoggle(this);">
+					<i class="fa no_pic fa-bus fa-1x"></i><span>{{ Form::checkbox('transport[]', 'bus', false, array('class'=>'checkbox')) }} Bus</span>
+				</div>
+				<div class="badge checkbox" onclick="checktoggle(this);">
+					<i class="fa no_pic fa-train fa-1x"></i><span>{{ Form::checkbox('transport[]', 'train', false, array('class'=>'checkbox')) }} Train</span>
+				</div>
+				<div class="badge checkbox" onclick="checktoggle(this);">
+					<i class="fa no_pic fa-plane fa-1x"></i><span>{{ Form::checkbox('transport[]', 'plane', false, array('class'=>'checkbox')) }} Plane</span>
+				</div>
+				<div class="badge checkbox" onclick="checktoggle(this);">
+					<i class="fa no_pic fa-bicycle fa-1x"></i><span>{{ Form::checkbox('transport[]', 'bicycle', false, array('class'=>'checkbox')) }} Bicycle</span>
+				</div>
+				<div class="badge checkbox" onclick="checktoggle(this);">
+					<i class="fa no_pic fa-truck fa-1x"></i><span>{{ Form::checkbox('transport[]', 'hitchhiking', false, array('class'=>'checkbox')) }} Hitchhiking</span>
+				</div>
+			</li>
+
 		</ul>
 		{{ Form::submit('Search', array('class'=>'button'))}}
 		{{ Form::close() }}
 	</div>
+	<script type="text/javascript">
+		function checktoggle(element) {
+			console.log(element.children[1].children[0].checked);
+			if (element.children[1].children[0].checked === false) {
+				element.classList.add('checked');
+				element.children[1].children[0].checked = true;
+			} else {
+				element.classList.remove('checked');
+				element.children[1].children[0].checked = false;
+			}
+		}
+	</script>
 </section>

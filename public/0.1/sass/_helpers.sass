@@ -21,6 +21,16 @@
 	padding-left: 0
 	margin-right: 1em
 	max-height: 50px
+	display: inline-block
+	&.checkbox
+		@include transition(background .3s)
+		&:hover, &.checked
+			background: $scheme_color
+			color: white
+			cursor: pointer
+		.checkbox
+			-webkit-appearance: none
+			-moz-appearance: none
 	&.img
 		padding-top: 0
 		padding-bottom: 0
