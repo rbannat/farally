@@ -1,6 +1,6 @@
 <section class="section list">
 	<div class="section_container">
-		<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>Latest Trips</h3>
+		<h3 class="section_container_title_small "><i class="fa fa-clock-o fa-1x"></i>{{{ isset($title) ? $title : 'Latest Trips' }}}</h3>
 		@if(count($trips))
 
 		@foreach ($trips as $trip)

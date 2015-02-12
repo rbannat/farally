@@ -1,8 +1,9 @@
 @extends('layouts.main')
 @section('content')
 <body>
-	@include('partials.header', array('title'=> $user->forename . ' ' . $user->lastname))
-	<section class="section profile">
+
+	@include('partials.header', array('title'=> 'Profile'))
+	<section class="section trip">
 		<header class="section_header">
 			<div class="overlay"></div>
 

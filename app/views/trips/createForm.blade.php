@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <body>
-	@include('partials.header')
+	@include('partials.header', array('title'=> 'Create Trip'))
 	<section class="section main">
 		<div class="section_container">
 			<article>

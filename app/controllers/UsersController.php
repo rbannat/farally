@@ -39,7 +39,7 @@ class UsersController extends BaseController {
 	{
 		$user = User::findOrFail($user_id);
 		$trips = Trip::where('user_id', '=', $user_id)->get();
-		return View::make('users.profile')->with('user', $user)->with('trips', $trips);
+		return View::make('users.profile')->with('user', $user)->with('trips', $trips)->with('title', 'Hosted Trips');
 	}
 
 	/**
@@ -69,7 +69,8 @@ class UsersController extends BaseController {
 		->with('trips', $trips)
 		->with('user', $user)
 		->with('acceptedRequests', $acceptedRequests)
-		->with('pendingRequests', $pendingRequests);
+		->with('pendingRequests', $pendingRequests)
+		->with('title', 'Hosted Trips');
 	}
 
 	/**
