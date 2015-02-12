@@ -48,7 +48,7 @@ class TripRequestsController extends BaseController {
 			->regarding($trip)
 			->deliver();
 
-			return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('is_requested', true);
+			return View::make('trips.singleTrip')->with('trip', $trip)->with('participants', $participants)->with('status', $trip_request->status);
 		}
 	}
 
