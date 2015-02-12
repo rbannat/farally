@@ -12,7 +12,7 @@ class UsersController extends BaseController {
 	public function dashboard()
 	{
 		$user= Auth::user();
-		$trips = Trip::orderBy('created_at', 'DESC')->get();
+		$trips = Trip::orderBy('created_at', 'desc')->where('user_id', '!=', Auth::id())->get();
 		return View::make('dashboard', compact('user','trips'));
 	}
 
