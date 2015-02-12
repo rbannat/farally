@@ -3,7 +3,7 @@
 <body>
 
 	@include('partials.header', array('title'=> 'Profile'))
-	<section class="section trip">
+	<section class="section profile">
 		<header class="section_header">
 			<div class="overlay"></div>
 
