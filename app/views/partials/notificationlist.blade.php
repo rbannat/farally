@@ -17,16 +17,16 @@
 				@elseif($notification->tripRequest->status == '2')
 
 					You declined the request from {{{ $notification->fromUser->forename }}}
-				
+
 				@else
 
 					{{ Form::open(array('action' => array('TripRequestsController@update', $notification->trip_request_id), 'method' => 'put', )) }}
 					{{ HTML::ul($errors->all(), array('class' => 'error')) }}
-					{{ Form::textarea('body', null, array('placeholder' => 'Type in a message')) }}
+					{{ Form::textarea('body', null, array('class'=>'textbox', 'placeholder' => 'Type in a message')) }}
 					{{ Form::submit('Accept', array('name' => 'accept', 'class' => 'button accept')) }}
 					{{ Form::submit('Decline', array('name' => 'decline', 'class' => 'button decline')) }}
 					{{ Form::close() }}
-					
+
 				@endif
 
 			</div>

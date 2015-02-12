@@ -344,6 +344,12 @@ img {
   .filter.show {
     display: block; }
 
+.textbox {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 1em; }
+
 .button {
   text-align: center;
   border: solid 2px;
